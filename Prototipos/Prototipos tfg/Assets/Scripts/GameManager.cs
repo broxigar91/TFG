@@ -4,11 +4,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    public static GameManager instance = null;
+    public Vector2 PlayerPosition;
+
+    void Awake()
+    {
+        if(instance== null)
+        {
+            instance = this;
+        }
+        else if(instance!=this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        InitGame();
+    }
+
+    void InitGame()
+    {
+    }
+
 	// Update is called once per frame
 	void Update () {
 		
