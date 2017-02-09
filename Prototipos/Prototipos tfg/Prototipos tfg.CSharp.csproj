@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\itemDBController.cs" />
     <Compile Include="Assets\Scripts\Jobs\JobTest.cs" />
     <Compile Include="Assets\Scripts\Jobs\Job_Base.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />

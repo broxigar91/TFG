@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
     public Vector2 PlayerPosition;
+    private float playedTime;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour {
 
     void InitGame()
     {
+        playedTime += Time.time;
     }
 
 	// Update is called once per frame
