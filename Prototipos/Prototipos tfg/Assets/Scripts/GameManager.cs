@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
-    public Vector2 PlayerPosition;
+    private Vector2 PlayerPosition;
     private float playedTime;
+    public GameObject inv;
 
     void Awake()
     {
@@ -20,17 +21,36 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-
-        InitGame();
+        startInventory();
     }
 
-    void InitGame()
+    void startInventory()
     {
-        playedTime += Time.time;
+        if(Inventory.inventory == null)
+        {
+            Instantiate(inv);
+        }
+
+        Inventory.inventory.loadState();
+    }
+
+    //Use this for initialization
+    void Start()
+    {
+        Inventory.inventory.addItem(1);
+        Inventory.inventory.addItem(0);
     }
 
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    void OnDestroy()
+    {
+        if (Inventory.inventory != null)
+        {
+            Inventory.inventory.saveState();
+        }
+    }
 }

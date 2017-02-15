@@ -5,18 +5,23 @@ using UnityEngine;
 
 public class itemDBController : MonoBehaviour {
 
-    public itemDB db;
+    public ItemDB db;
 
 	// Use this for initialization
 	void Start () {
-        string data = File.ReadAllText(Application.dataPath + "/Scripts/Items/items.json"); //establezco la ruta donde se encuentra el fichero json
-        db = JsonUtility.FromJson<itemDB>(data);
+        string datos = File.ReadAllText(Application.dataPath + "/Resources/itemdatabase.json"); //establezco la ruta donde se encuentra el fichero json
+        db = JsonUtility.FromJson<ItemDB>(datos);
 	}
 
     public Item getById(int id)
     {
         //para cada objedo dentro de db compara el id y nos devuelve el objeto en caso de coincidir
-        return db.items.Find(item => item.Id == id);
+        return db.items.Find(item => item.id == id);
+    }
+
+    public bool exist(int id)
+    {
+        return db.items.Exists(item => item.id == id);
     }
 
 }
