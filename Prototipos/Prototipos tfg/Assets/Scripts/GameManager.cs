@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     private Vector2 PlayerPosition;
     private float playedTime;
     public GameObject inv;
+    public Party party;
 
     void Awake()
     {
@@ -34,11 +35,19 @@ public class GameManager : MonoBehaviour {
         Inventory.inventory.loadState();
     }
 
+    void startParty()
+    {
+        if(Party.instance == null)
+        {
+            Instantiate(party);
+        }
+
+        Party.instance.loadState();
+    }
+
     //Use this for initialization
     void Start()
     {
-        Inventory.inventory.addItem(1);
-        Inventory.inventory.addItem(0);
     }
 
 	// Update is called once per frame
@@ -51,6 +60,11 @@ public class GameManager : MonoBehaviour {
         if (Inventory.inventory != null)
         {
             Inventory.inventory.saveState();
+        }
+
+        if(Party.instance != null)
+        {
+            Party.instance.saveState();
         }
     }
 }

@@ -11,17 +11,18 @@ public class itemDBController : MonoBehaviour {
 	void Start () {
         string datos = File.ReadAllText(Application.dataPath + "/Resources/itemdatabase.json"); //establezco la ruta donde se encuentra el fichero json
         db = JsonUtility.FromJson<ItemDB>(datos);
+        
 	}
 
     public Item getById(int id)
     {
         //para cada objedo dentro de db compara el id y nos devuelve el objeto en caso de coincidir
-        return db.items.Find(item => item.id == id);
+        return db.items.Find(item => item.Id == id);
     }
 
     public bool exist(int id)
     {
-        return db.items.Exists(item => item.id == id);
+        return db.items.Exists(item => item.Id == id);
     }
 
 }

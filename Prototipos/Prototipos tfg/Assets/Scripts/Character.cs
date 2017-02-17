@@ -2,62 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour {
+[System.Serializable]
+public class Character{
 
 
-    private string charName;
-    private int hp;
-    private int str;
-    private int def;
-    private int intelect;
-    private int mdef;
-    private int spe;
+    public string charName;
+    public int hp;
+    public int str;
+    public int def;
+    public int intelect;
+    public int mdef;
+    public int spe;
+    public int level;
+    public int currentExp; //experiencia actual del personaje
+    public int lvlupExp; //experiencia necesaria para subir de nivel
+    public bool activaded; //esta variable se usa para activar al personaje dentro de la party.
 
-    public string CharName
+
+    public void expGain(int expGained)
     {
-        get { return charName; }
-        set { charName = value; }
+        currentExp += expGained;
+
+        if(currentExp >= lvlupExp)
+        {
+            currentExp = currentExp - lvlupExp; //si es = sera 0, si es > será la diferencia
+            lvlUp();
+        }
+
     }
 
-    public int Hp
+    public void lvlUp()
     {
-        get { return hp; }
-        set { hp = value; }
+        level++;
+        lvlupExp = level * 100; //1 -> 100, 2-> 200, 3-> 300
     }
-
-    public int Str
-    {
-        get { return str; }
-        set { str = value; }
-    }
-
-    public int Def
-    {
-        get { return def; }
-        set { def = value; }
-    }
-
-    public int Intelect
-    {
-        get { return intelect; }
-        set { intelect = value; }
-    }
-
-    public int Spe
-    {
-        get { return spe; }
-        set { spe = value; }
-    }
-
-
-    /*
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}*/
 }

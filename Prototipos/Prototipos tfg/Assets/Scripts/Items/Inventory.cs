@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour {
 
     public static Inventory inventory;
     public List<InvItem> itemList;
+    private int itemLimit = 5;
     void Awake()
     {
         if (inventory == null)
@@ -30,9 +31,19 @@ public class Inventory : MonoBehaviour {
     public void addItem(int id)
     {
         //busco en la base de datos si ese item existe
-        if(GameManager.instance.GetComponent<itemDBController>().exist(id))
+        //si el inventario no esta lleno...
+        if(GameManager.instance.GetComponent<itemDBController>().exist(id) && canAdd(id))
         {
-            itemList.Add(new InvItem(id));
+            //si ya esta en el inventario se incrementa la cantidad
+            if(inInventory(id))
+            {
+                addQuantity(id, 1);
+            }
+            else
+            {
+                itemList.Add(new InvItem(id));
+            }
+            
         }
     }
 
@@ -43,9 +54,10 @@ public class Inventory : MonoBehaviour {
 
     public void addQuantity(int id, int q)
     {
-        if(inInventory(id))
+        InvItem it = itemList.Find(item => item.id == id);
+        if (inInventory(id) && it.quantity < 99)
         {
-            itemList.Find(item => item.id == id).quantity += q;
+            it.quantity += q;
         }
     }
 
@@ -71,6 +83,11 @@ public class Inventory : MonoBehaviour {
             JsonUtility.FromJsonOverwrite(inventoryData, this);
         }
                        
+    }
+
+    public bool canAdd(int id)
+    {
+        return itemList.Count < itemLimit;
     }
     
 }
