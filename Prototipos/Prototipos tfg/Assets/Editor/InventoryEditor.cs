@@ -26,7 +26,7 @@ public class InventoryEditor : Editor {
 
             foreach (Item it in database.db.items)
             {
-                dictionary.Add(it.ItemName, it.Id);
+                dictionary.Add(it.itemName, it.id);
             }
 
 
@@ -38,7 +38,7 @@ public class InventoryEditor : Editor {
             foreach (InvItem it in context.itemList)
             {
                 Item actualItem = database.getById(it.id);
-                EditorGUILayout.LabelField(actualItem.ItemName, it.quantity.ToString());
+                EditorGUILayout.LabelField(actualItem.itemName, it.quantity.ToString());
             }
 
 

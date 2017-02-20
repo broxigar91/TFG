@@ -75,8 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Character.cs" />
-    <Compile Include="Assets\Scripts\CharacterLoader.cs" />
+    <Compile Include="Assets\Scripts\Chracters\Character.cs" />
+    <Compile Include="Assets\Scripts\Chracters\CharacterLoader.cs" />
+    <Compile Include="Assets\Scripts\Chracters\Party.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -87,8 +88,8 @@
     <Compile Include="Assets\Scripts\Jobs\Job_Base.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\MapController.cs" />
+    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
-    <Compile Include="Assets\Scripts\Party.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
@@ -97,6 +98,14 @@
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
+    <Compile Include="Assets\VIDE\Data\MiniJSON_VIDE.cs" />
+    <Compile Include="Assets\VIDE\Data\VIDE_EditorDB.cs" />
+    <Compile Include="Assets\VIDE\Examples\Example1\examplePlayer.cs" />
+    <Compile Include="Assets\VIDE\Examples\Example1\exampleUI.cs" />
+    <Compile Include="Assets\VIDE\Examples\Example1\witchExample.cs" />
+    <Compile Include="Assets\VIDE\Examples\Example2\minUIExample.cs" />
+    <Compile Include="Assets\VIDE\VIDE_Assign.cs" />
+    <Compile Include="Assets\VIDE\VIDE_Data.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
@@ -113,6 +122,8 @@
     <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
     <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
+    <None Include="Assets\VIDE\Resources\ReadMe.txt" />
+    <None Include="Assets\VIDE\license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

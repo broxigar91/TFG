@@ -34,7 +34,6 @@ public class Party : MonoBehaviour {
 
     public void setExp()
     {
-        
     }
 
     public void saveState()
@@ -50,6 +49,5 @@ public class Party : MonoBehaviour {
             string inventoryData = File.ReadAllText(Application.dataPath + "/Resources/party.json");
             JsonUtility.FromJsonOverwrite(inventoryData, this);
         }
-
     }
 }

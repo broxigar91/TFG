@@ -17,12 +17,12 @@ public class itemDBController : MonoBehaviour {
     public Item getById(int id)
     {
         //para cada objedo dentro de db compara el id y nos devuelve el objeto en caso de coincidir
-        return db.items.Find(item => item.Id == id);
+        return db.items.Find(item => item.id == id);
     }
 
     public bool exist(int id)
     {
-        return db.items.Exists(item => item.Id == id);
+        return db.items.Exists(item => item.id == id);
     }
 
 }
