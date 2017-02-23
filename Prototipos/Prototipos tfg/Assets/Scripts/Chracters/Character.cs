@@ -37,3 +37,10 @@ public class Character{
         lvlupExp = level * 100; //1 -> 100, 2-> 200, 3-> 300
     }
 }
+
+
+[System.Serializable]
+public class CharDB
+{
+    public List<Character> characters;
+}

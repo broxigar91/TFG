@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour {
 
-    public Transform target;
+    private Transform target;
     Camera cam; //main camera
     public float cam_speed; //velocidad a la que se mueve la camara
 
 	// Use this for initialization
 	void Start () {
         cam = GetComponent<Camera>();
+        target = Player.instance.transform;
 	}
 	
 	// Update is called once per frame

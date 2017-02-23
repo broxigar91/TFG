@@ -21,15 +21,20 @@ public class Party : MonoBehaviour {
         }
         
         DontDestroyOnLoad(gameObject);
-        //cargamos de fichero todos los personajes jugables, tendran un atributo para reflejar si estan activos o no
-        //posiblemente esto sea mas optimo si se crea una base de datos aparte y progresivamente se añaden a la lista (?)...  CONSULTAR CON MIGUEL
-        string datos = File.ReadAllText(Application.dataPath + "/Resources/characters.json"); //establezco la ruta donde se encuentra el fichero json
-        instance.characters = JsonUtility.FromJson<List<Character>>(datos);
     }
 
-    public void addToParty(Character ch)
+    void Start()
     {
-        characters.Add(ch);
+        characters = GameManager.instance.GetComponent<CharacterLoader>().db.characters;
+    }
+
+    public void addToParty(string name)
+    {
+        Character ch = GameManager.instance.GetComponent<CharacterLoader>().getByName(name);
+        if (ch != null)
+        {
+            characters.Add(ch);
+        }
     }
 
     public void setExp()
