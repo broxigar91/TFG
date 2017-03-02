@@ -27,6 +27,8 @@ public class InventoryUI : MonoBehaviour {
             Item itemDetails = db.getById(it.id);
             itemInstance.transform.GetComponentInChildren<Text>().text = itemDetails.itemName;
             itemInstance.transform.SetParent(this.transform);
+            itemInstance.transform.localScale = new Vector3(1, 1, 1);
+            
         }
     }
 
