@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
         inventoryMenu.SetActive(false);
     }
 	

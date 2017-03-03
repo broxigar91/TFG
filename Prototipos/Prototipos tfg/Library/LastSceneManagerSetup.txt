@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Prototipo movimiento mapa.unity
+- path: Assets/Batalla.unity
   isLoaded: 1
   isActive: 1

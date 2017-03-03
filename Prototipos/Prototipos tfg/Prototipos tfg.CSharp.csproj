@@ -75,11 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
     <Compile Include="Assets\Scripts\Chracters\Character.cs" />
     <Compile Include="Assets\Scripts\Chracters\CharacterLoader.cs" />
     <Compile Include="Assets\Scripts\Chracters\Party.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyLoader.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />

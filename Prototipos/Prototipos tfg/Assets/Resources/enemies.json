@@ -1,0 +1,12 @@
+{
+  "enemies": [
+    {
+      "enemyName": "enemy1",
+      "hp": 15
+    },
+    {
+      "enemyName": "enemy2",
+      "hp": 13
+    }
+  ]
+}
