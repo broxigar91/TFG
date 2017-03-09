@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour {
     public GameObject inv;
     public GameObject party;
     public GameObject menu;
-    private GameState state = GameState.MAP;
+    public GameState state = GameState.MAP;
+    public int encounter_chance,rn;
 
     void Awake()
     {
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour {
 
     void startPlayer()
     {
-        if(Player.instance==null)
+        if (Player.instance == null)
         {
             Instantiate(player);
         }
@@ -68,11 +70,23 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         menu.SetActive(false);
+        encounter_chance = 4;
     }
 
 	// Update is called once per frame
 	void Update () {
-	}
+
+        if(state== GameState.MAP)
+        {
+            rn = Random.Range(0,100);
+
+            if(rn == encounter_chance)
+            {
+                enterBattle();
+            }
+        }
+        
+    }
 
 
     void LateUpdate()
@@ -130,5 +144,14 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 1.0f;
             state = GameState.MAP;
         }
+    }
+
+
+    public void enterBattle()
+    {
+        state = GameState.BATTLE;
+        
+        SceneManager.LoadScene("Batalla");
+       
     }
 }

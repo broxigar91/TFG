@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
+    <Compile Include="Assets\Scripts\Battle\Testeo1cosa.cs" />
     <Compile Include="Assets\Scripts\Chracters\Character.cs" />
     <Compile Include="Assets\Scripts\Chracters\CharacterLoader.cs" />
     <Compile Include="Assets\Scripts\Chracters\Party.cs" />

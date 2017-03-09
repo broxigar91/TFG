@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour {
 
@@ -20,18 +21,21 @@ public class BattleController : MonoBehaviour {
 
     private List<Character> battleMembers;
     private BattleState currentState;
-    private int c1, c2, c3, e1, e2, e3;
+    //private int c1, c2, c3, e1, e2, e3;
     private int enemyType;
+    private float waitTime = 10.0f;
+    private float cd1;
+    private int pchoice;
+    private bool actionRealized;
+    public Image c1, c2, c3;//, e1, e2, e3;
+    public GameObject actionPanel;
 
-    public BattleController(int et)
-    {
-        enemyType = et;
-    }
 
     // Use this for initialization
 	void Start () {
         currentState = BattleState.START;
-        c1 = c2 = c3 = e1 = e2 = e3 = 0;
+        actionRealized = false;
+        actionPanel.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -40,14 +44,37 @@ public class BattleController : MonoBehaviour {
         switch(currentState)
         {
             case BattleState.START:
-
-                battleMembers = Party.instance.characters;
+                
+                //battleMembers = Party.instance.characters;
+                c1.fillAmount = 0.0f;
+                c2.fillAmount = 0.0f;
+                c3.fillAmount = 0.0f;
                 currentState = BattleState.WAITING;
-                 
-
+              
                 break;
 
             case BattleState.PLAYER_CHOICE:
+
+                if(actionPanel.activeInHierarchy==false)
+                {
+                    actionPanel.SetActive(true);
+                }
+
+                if(actionRealized==true)
+                {
+                    if(pchoice==0)
+                    {
+                        c1.fillAmount = 0.0f;
+                    }
+                    else if(pchoice == 1)
+                    {
+                        c2.fillAmount = 0.0f;
+                    }
+                    actionRealized = false;
+                    currentState = BattleState.WAITING;
+                }
+
+
                 break;
 
             case BattleState.ENEMY_CHOICE:
@@ -58,7 +85,28 @@ public class BattleController : MonoBehaviour {
 
             case BattleState.WAITING:
 
+                actionPanel.SetActive(false);
+                
 
+                if (c1.fillAmount!=1.0f)
+                {
+                    c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
+                }
+                else
+                {
+                    pchoice = 0;
+                    currentState = BattleState.PLAYER_CHOICE;
+                }
+
+                if (c2.fillAmount != 1.0f)
+                {
+                    c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                }
+                else
+                {
+                    pchoice = 1;
+                    currentState = BattleState.PLAYER_CHOICE;
+                }
 
                 break;
 
@@ -69,8 +117,22 @@ public class BattleController : MonoBehaviour {
                 break;
 
             case BattleState.EXIT:
+                GameManager.instance.state = GameState.MAP;
+                SceneManager.LoadScene("Prototipo movimiento mapa");
                 break;
         }
 
 	}
+
+
+    public void Attack()
+    {
+        Debug.Log("Accion del jugador" + pchoice);
+        actionRealized = true;
+    }
+
+    public void Exit()
+    {
+        currentState = BattleState.EXIT;
+    }
 }

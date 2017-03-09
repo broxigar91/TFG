@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Batalla.unity
+- path: Assets/VIDE/Examples/Example1/example1.unity
   isLoaded: 1
   isActive: 1
