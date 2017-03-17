@@ -15,6 +15,27 @@ public class EnemyLoader : MonoBehaviour {
 	
     public Enemy getbyName(string name)
     {
-        return db.enemies.Find(enem => enem.enemyName == name);
+        return db.enemies.Find(enem => enem.name == name);
+    }
+
+    public List<Enemy> getByZone(int z)
+    {
+        return db.enemies.FindAll(enem => enem.zone == z);
+    }
+
+
+    public List<Enemy> toBattle(int z)
+    {
+        List<Enemy> aux = getByZone(z);
+        List<Enemy> en = new List<Enemy>();
+        int rn;
+
+        while (en.Count < 3)
+        {
+            rn = Random.Range(0, aux.Count);
+            en.Add(aux[rn]);
+        }
+
+        return en;
     }
 }

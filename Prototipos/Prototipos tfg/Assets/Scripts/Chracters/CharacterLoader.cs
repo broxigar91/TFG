@@ -16,7 +16,7 @@ public class CharacterLoader : MonoBehaviour {
 
     public Character getByName(string name)
     {
-        return db.characters.Find(character => character.charName == name);
+        return db.characters.Find(character => character.name == name);
     }
 
 }

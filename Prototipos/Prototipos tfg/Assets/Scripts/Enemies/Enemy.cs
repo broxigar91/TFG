@@ -4,15 +4,10 @@ using System.IO;
 using UnityEngine;
 
 [System.Serializable]
-public class Enemy {
-
-    public string enemyName;
-    public int hp;
-    public int str;
-    public int def;
-    public int intelect;
-    public int mdef;
-    public int spe;
+public class Enemy: Unit {
+    public string sprite;
+    public int baseExp; //experiencia que da este enemigo
+    public int zone; //zona de aparicion de los enemigos
 }
 
 [System.Serializable]

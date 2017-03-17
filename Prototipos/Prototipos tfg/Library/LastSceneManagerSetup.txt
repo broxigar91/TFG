@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/VIDE/Examples/Example1/example1.unity
+- path: Assets/Prototipo Menus.unity
   isLoaded: 1
   isActive: 1

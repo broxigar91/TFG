@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     public GameObject party;
     public GameObject menu;
     public GameState state = GameState.MAP;
-    public int encounter_chance,rn;
+    public int encounter_chance,rn,zona_actual;
 
     void Awake()
     {
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour {
     {
         menu.SetActive(false);
         encounter_chance = 4;
+        zona_actual = 1;
     }
 
 	// Update is called once per frame

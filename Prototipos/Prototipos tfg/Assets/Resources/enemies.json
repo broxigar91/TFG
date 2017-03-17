@@ -1,12 +1,19 @@
 {
   "enemies": [
     {
-      "enemyName": "enemy1",
-      "hp": 15
+      "name": "enemy1",
+      "hp": 15,
+      "zona": 1
     },
     {
-      "enemyName": "enemy2",
-      "hp": 13
+      "name": "enemy2",
+      "hp": 13,
+      "zona": 1
+    },
+    {
+      "name": "enemy3",
+      "hp": 10,
+      "zona": 1
     }
   ]
 }
