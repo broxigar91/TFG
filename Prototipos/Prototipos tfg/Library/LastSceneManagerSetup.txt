@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Prototipo Menus.unity
+- path: Assets/Testeo de cosas.unity
   isLoaded: 1
   isActive: 1

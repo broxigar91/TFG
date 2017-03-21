@@ -6,4 +6,7 @@ public class Skill {
     public string job; //identificador del trabajo con el cual esta relacionado la habilidad
     public string name;
     public string description;
+    public int damage;
+    public int heal;
+    public int manaCost;
 }

@@ -8,7 +8,10 @@ public class Character:Unit{
     public string portrait; //"foto" del personaje
     public int currentExp; //experiencia actual del personaje
     public int lvlupExp; //experiencia necesaria para subir de nivel
+    
     public bool activaded; //esta variable se usa para activar al personaje dentro de la party.
+    public Dictionary<string,int> jobInfo; //estructura que guardará el nivel de cada trabajo en cada personaje
+    public string job;  
 
 
     public void expGain(int expGained)
