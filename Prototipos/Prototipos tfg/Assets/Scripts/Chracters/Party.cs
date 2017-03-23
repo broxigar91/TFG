@@ -6,7 +6,7 @@ using System.IO;
 public class Party : MonoBehaviour {
 
     public static Party instance = null;
-    public List<Character> characters;
+    public List<Character> characters = new List<Character>();
 
 
     void Awake()

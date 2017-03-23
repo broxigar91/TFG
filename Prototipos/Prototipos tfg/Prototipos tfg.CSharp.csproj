@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Items\itemDBController.cs" />
     <Compile Include="Assets\Scripts\Jobs\Job.cs" />
     <Compile Include="Assets\Scripts\Jobs\JobManager.cs" />
+    <Compile Include="Assets\Scripts\Jobs\JobUI.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\MapController.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
@@ -97,9 +98,12 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\Skills\DamageSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Heal.cs" />
+    <Compile Include="Assets\Scripts\Skills\HealingSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Piro.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
     public GameObject menu;
     public GameState state = GameState.MAP;
     public int encounter_chance,rn,zona_actual;
+    public GameObject jobManager;
 
     void Awake()
     {
@@ -36,6 +37,12 @@ public class GameManager : MonoBehaviour {
         startInventory();
         startPlayer();
         startParty();
+        startJobManager();
+    }
+
+    void startJobManager()
+    {
+        Instantiate(jobManager);
     }
 
     void startInventory()
@@ -72,12 +79,18 @@ public class GameManager : MonoBehaviour {
         menu.SetActive(false);
         encounter_chance = 4;
         zona_actual = 1;
+
+
+        /* trozo random de codigo para probar cosas*/
+        //Party.instance.characters[0].setJob("Black Mage");
+
+
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        if(state== GameState.MAP)
+       /* if(state== GameState.MAP)
         {
             rn = Random.Range(0,100);
 
@@ -85,8 +98,7 @@ public class GameManager : MonoBehaviour {
             {
                 enterBattle();
             }
-        }
-        
+        }*/
     }
 
 
@@ -100,6 +112,17 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.I) && menu.activeInHierarchy)
         {
             this.GetComponent<PauseMenu>().ToggleInventory();
+        }
+
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            Party.instance.characters[0].setJob("Black Mage");
+            Debug.Log(Party.instance.characters[0].job.jobName);
+            List<string> s = jobManager.GetComponent<JobManager>().getSkills(Party.instance.characters[0].job.jobName);
+            foreach(string st in s)
+            {
+                Debug.Log(st);
+            }
         }
     }
 

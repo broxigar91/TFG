@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Job : MonoBehaviour {
 
-    //multiplicadores
+    
     public string jobName;
     public string description;
+
+    //multiplicadores
     public float hp;
     public float str;
     public float def;
@@ -15,7 +17,7 @@ public class Job : MonoBehaviour {
     public float spe;
     //public List<int> lvlpoints = new List<int>(9);//nivel inicial del job =1 + 9 niveles  = 10 niveles de job
     public Dictionary<int, int> joblvl = new Dictionary<int, int>(9);//nivel inicial del job =1 + 9 niveles  = 10 niveles de job
-    public int lvl;
+    
 
     void Start()
     {
@@ -40,5 +42,8 @@ public class Job : MonoBehaviour {
         joblvl.Add(9, 5000);
         joblvl.Add(10, 8000);
     }
+
+
+    
 
 }

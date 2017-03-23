@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Testeo de cosas.unity
+- path: Assets/Prototipo movimiento mapa.unity
   isLoaded: 1
   isActive: 1

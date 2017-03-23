@@ -19,8 +19,8 @@ public class BattleController : MonoBehaviour {
     }
 
 
-    private List<Character> battleMembers;
-    private List<Enemy> enemyMembers;
+    private List<Character> battleMembers = new List<Character>();
+    private List<Enemy> enemyMembers = new List<Enemy>();
     private BattleState currentState;
     private int enemyType;
     private float waitTime = 10.0f;

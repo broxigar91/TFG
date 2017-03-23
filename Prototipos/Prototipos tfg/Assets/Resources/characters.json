@@ -1,7 +1,8 @@
 {
   "characters": [
     {
-      "name": "Memer1"
+      "name": "Memer1",
+      "str": 12
     },
     {
       "name": "Member2"
