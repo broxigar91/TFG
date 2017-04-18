@@ -2,14 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageSkill : MonoBehaviour {
-
-    public string abilityName;
-    public string description;
-    public int damage;
-    public string job;
-    public Unit target;
-    public Unit user;
+public class DamageSkill : Skill {
 
     public void use()
     {

@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Skills\HealingSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Piro.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\Skills\StatusSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
