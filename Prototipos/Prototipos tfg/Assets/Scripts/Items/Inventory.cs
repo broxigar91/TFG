@@ -42,8 +42,9 @@ public class Inventory : MonoBehaviour {
             else
             {
                 itemList.Add(new InvItem(id));
+                //checkear para objetivo
             }
-            
+               
         }
     }
 

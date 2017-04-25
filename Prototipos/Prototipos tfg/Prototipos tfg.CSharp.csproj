@@ -75,6 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\RPGTALK\Demo\Scripts\DemoScript.cs" />
+    <Compile Include="Assets\RPGTALK\RPGTalk.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
     <Compile Include="Assets\Scripts\Battle\Testeo1cosa.cs" />
     <Compile Include="Assets\Scripts\Chracters\Character.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLoader.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
@@ -94,19 +97,21 @@
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\MapController.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
+    <Compile Include="Assets\Scripts\Objectives\Objective.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveDBController.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
-    <Compile Include="Assets\Scripts\Skills\DamageSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Heal.cs" />
-    <Compile Include="Assets\Scripts\Skills\HealingSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Piro.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
-    <Compile Include="Assets\Scripts\Skills\StatusSkill.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
+    <Compile Include="Assets\Scripts\Vendor.cs" />
+    <Compile Include="Assets\Scripts\VendorDBController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />
@@ -124,6 +129,8 @@
     <Compile Include="Assets\VIDE\VIDE_Data.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
+    <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\License.txt" />

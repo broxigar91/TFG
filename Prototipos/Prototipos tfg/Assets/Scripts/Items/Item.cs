@@ -3,22 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-/*public enum Itemtype
+public enum Itemtype
 {
     POTION, //0
-    WEAPON_SWORD_1H, //1
-    WEAPON_SWORD_2H, //2 
-    WEAPON_SHIELD, //3
-    WEAPON_ROD, //4
-    WEAPON_AXE_1H, //5
-    WEAPON_AXE_2H, //6
-    WEAPON_DAGGER, //7
-    ARMOR_HELMET, //8
-    ARMOR_CHEST, //9
-    ARMOR_LEGS, //10
-    ARMOR_BOOTS, //11
-    ARMOR_GLOVES //12
-}*/
+    WEAPON,//1
+    ARMOR_HELMET, //2
+    ARMOR_CHEST, //3
+    ARMOR_LEGS, //4
+    ARMOR_BOOTS, //5
+    ARMOR_GLOVES //6
+}
 
 [System.Serializable]
 public class Item {
@@ -26,8 +20,8 @@ public class Item {
     public int id;
     public string itemName;
     public string itemDesc;
-    public string sprite;
-    //private Itemtype type;
+    public string rutaSprite;
+    public Itemtype type;
     public int goldValue;
 
     //parámetros de los objetos -> pociones
@@ -42,7 +36,20 @@ public class Item {
     public int intelect;
     public int mdef;
     public int spe;
-    
+
+
+    public void use()
+    {
+        if(hp_restore!=0) //cura vida
+        {
+
+        }
+        else //cura estados alterados
+        {
+
+        }
+    }
+
 }
 
 [System.Serializable]

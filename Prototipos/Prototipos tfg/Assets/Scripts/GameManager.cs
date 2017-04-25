@@ -118,11 +118,6 @@ public class GameManager : MonoBehaviour {
         {
             Party.instance.characters[0].setJob("Black Mage");
             Debug.Log(Party.instance.characters[0].job.jobName);
-            List<string> s = jobManager.GetComponent<JobManager>().getSkills(Party.instance.characters[0].job.jobName);
-            foreach(string st in s)
-            {
-                Debug.Log(st);
-            }
         }
     }
 

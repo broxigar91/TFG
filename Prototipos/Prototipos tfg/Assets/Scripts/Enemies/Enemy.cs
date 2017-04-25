@@ -5,9 +5,13 @@ using UnityEngine;
 
 [System.Serializable]
 public class Enemy: Unit {
-    public string sprite;
+    public int id;
     public int baseExp; //experiencia que da este enemigo
     public int zone; //zona de aparicion de los enemigos
+
+
+
+
 }
 
 [System.Serializable]

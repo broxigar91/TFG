@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit {
+public class Unit:MonoBehaviour {
 
-    public string name;
+    public string Unitname;
     public int hp;
     public int str;
     public int def;

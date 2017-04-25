@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\InventoryEditor.cs" />
+    <Compile Include="Assets\RPGTALK\Editor\RPGTalkEditor.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Editor\CustomTiledImporterAttribute.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Editor\ICustomTiledImporter.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Editor\ImportTiled2Unity.Material.cs" />
@@ -137,6 +138,8 @@
     <Compile Include="Assets\VIDE\Editor\VIDE_Editor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
+    <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\License.txt" />

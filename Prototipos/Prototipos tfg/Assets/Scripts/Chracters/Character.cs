@@ -23,6 +23,7 @@ public class Character:Unit{
     public Dictionary<string,currentJobData> jobsInfo; //estructura que guardará el nivel de cada trabajo en cada personaje
     public Job job;
     public currentJobData currentJobInfo;
+    public Dictionary<Itemtype, Item> equip;
 
 
 
@@ -46,7 +47,8 @@ public class Character:Unit{
 
     public void setJob(string j)
     {
-        job = GameManager.instance.jobManager.GetComponent<JobManager>().getScript(j);
+
+        job = JobManager.instance.getJob(j);
         applyJobStats(); //aplicamos los nuevos multiplicadores
     }
 
@@ -104,7 +106,44 @@ public class Character:Unit{
             spe -= (int)(spe * job.spe);
         }
     }
+
+    public void equipItem(Item i)
+    {
+        if(equip.ContainsKey(i.type))
+        {
+            unapplyItemStats(equip[i.type]);
+            equip[i.type] = i;
+            applyItemStats(i);
+        }
+        else
+        {
+            equip.Add(i.type, i);
+            applyItemStats(i);
+        }
+    }
+
+    void applyItemStats(Item i)
+    {
+        hp += i.hp;
+        str += i.str;
+        def += i.def;
+        intelect += i.intelect;
+        mdef += i.mdef;
+        spe += i.spe;
+    }
+
+    void unapplyItemStats(Item i)
+    {
+        hp -= i.hp;
+        str -= i.str;
+        def -= i.def;
+        intelect -= i.intelect;
+        mdef -= i.mdef;
+        spe -= i.spe;
+    }
 }
+
+
 
 
 [System.Serializable]

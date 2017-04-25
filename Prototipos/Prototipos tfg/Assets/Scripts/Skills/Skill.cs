@@ -8,6 +8,7 @@ public class Skill: MonoBehaviour {
     {
         DAMAGE,
         HEAL,
+        HEAL_STATUS,
         STATUS,
         SPECIAL
     }
@@ -25,6 +26,7 @@ public class Skill: MonoBehaviour {
     public string abilityName;
     public string description;
     public skillType sType;
+    public int joblvl; //nivel de trabajo necesario para utilizar la habilidad
     public int damage;
     public string job;
     public int manaCost;
@@ -33,7 +35,8 @@ public class Skill: MonoBehaviour {
     public Unit user;
     public statusType status;
     public bool magicdmg;
-
+    public Sprite sp;
+    public Animator anim;
     
     public void use()
     {
@@ -43,22 +46,25 @@ public class Skill: MonoBehaviour {
 
                 if (magicdmg)
                 {
-
+                    // target.hp = (int)(user.intelect / target.mdef * damage);
                 }
-                else
+                else //daño fisico
                 {
-
+                    // target.hp = (int)(user.str / target.def * damage);
+                    Debug.Log("esto hace daño");
                 }
 
                 break;
             case skillType.HEAL:
 
                 break;
-            case skillType.STATUS:
+            case skillType.STATUS: //provoca estados alterados
 
 
                 break;
-            case skillType.SPECIAL:
+            case skillType.SPECIAL: //habilidades como libra que proporcionan informacion sobre el enemigo
+                break;
+            case skillType.HEAL_STATUS:
                 break;
         }
     }

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class JobUI : MonoBehaviour {
 
     public GameObject job;
-    private JobManager jm;
+    private JobManager jM;
 
 
 	// Use this for initialization
 	void Start () {
-        jm = GameManager.instance.jobManager.GetComponent<JobManager>();
+        jM = JobManager.instance;
         paintJobs();
 	}
 	
@@ -23,12 +23,10 @@ public class JobUI : MonoBehaviour {
 
     void paintJobs()
     {
-        List<string> jobs = jm.getAll();
-
-        foreach(string s in jobs)
+        foreach(Job jb in jM.getAll())
         {
             GameObject j = Instantiate(job);
-            j.transform.GetComponentInChildren<Text>().text = s;
+            j.transform.GetComponentInChildren<Text>().text = jb.name;
             j.transform.SetParent(this.transform);
             j.transform.transform.localScale = new Vector3(1, 1, 1);
         }

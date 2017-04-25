@@ -27,8 +27,9 @@ public class BattleController : MonoBehaviour {
     private float cd1;
     private int pchoice;
     private bool actionRealized;
-    public Image c1, c2, c3, portrait1, portrait2, portrait3;
-    public Text h1, h2, h3, m1, m2, m3, e1, e2, e3;
+    private Animator ae1, ae2, ae3;
+    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3;
+    public Text h1, h2, h3, m1, m2, m3;
     public GameObject actionPanel;
 
 
@@ -39,7 +40,7 @@ public class BattleController : MonoBehaviour {
         currentState = BattleState.START;
         actionRealized = false;
         actionPanel.SetActive(false);
-        
+        e1.sprite = EnemyManager.instance.getSprite(enemyMembers[0].id);
     }
 	
 	// Update is called once per frame
@@ -55,9 +56,6 @@ public class BattleController : MonoBehaviour {
                 c3.fillAmount = 0.0f;
                 currentState = BattleState.WAITING;
                 h1.text = battleMembers[0].name;
-                e1.text = enemyMembers[0].name;
-                e2.text = enemyMembers[1].name;
-                e3.text = enemyMembers[2].name;
                 break;
 
             case BattleState.PLAYER_CHOICE:
@@ -76,6 +74,10 @@ public class BattleController : MonoBehaviour {
                     else if(pchoice == 1)
                     {
                         c2.fillAmount = 0.0f;
+                    }
+                    else
+                    {
+                        c3.fillAmount = 0.0f;
                     }
                     actionRealized = false;
                     currentState = BattleState.WAITING;

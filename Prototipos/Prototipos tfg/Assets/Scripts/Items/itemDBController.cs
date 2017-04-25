@@ -6,11 +6,24 @@ using UnityEngine;
 public class itemDBController : MonoBehaviour {
 
     public ItemDB db;
+    public Dictionary<int, Sprite> itemSprites;
 
 	// Use this for initialization
 	void Start () {
         string datos = File.ReadAllText(Application.dataPath + "/Resources/itemdatabase.json"); //establezco la ruta donde se encuentra el fichero json
         db = JsonUtility.FromJson<ItemDB>(datos);
+
+        //ademas de cargar los datos de los objetos, se cargan los sprites de los objetos.
+        /*itemSprites = new Dictionary<int, Sprite>();
+        foreach(Item it in db.items)
+        {
+            string ruta = Application.dataPath + "/Resources/" + it.rutaSprite + ".png";
+            if(File.Exists(ruta))
+            {
+                Sprite sprite = Resources.Load<Sprite>(it.rutaSprite);
+                itemSprites.Add(it.id, sprite);
+            }
+        }*/
         
 	}
 
