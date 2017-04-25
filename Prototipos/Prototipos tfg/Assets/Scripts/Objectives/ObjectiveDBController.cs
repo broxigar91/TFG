@@ -18,7 +18,7 @@ public class ObjectiveDBController : MonoBehaviour {
         return db.objectives.FindAll(x => x.complete == true);
     }
 
-    public List<Objective> active()
+    public List<Objective> currentObjectives()
     {
         return db.objectives.FindAll(x => x.active == true && x.complete == false);
     }
@@ -26,12 +26,12 @@ public class ObjectiveDBController : MonoBehaviour {
     public void unlocks(int id) //este metdo desbloquea todos aquellos objetivos que se desbloquean a partir del objetivo pasado por parametro (en caso de poderse)
     {
         Objective ob = db.objectives.Find(x => x.id == id);//obtenemos el objetivo que nos concierne
-
+        Objective o;
         foreach(int i in ob.unlocks)//miramos en cada objetivo que desbloquea
         {
             if(isUnlockable(i))//en caso de que pueda ser desbloqueado
             {
-                db.objectives.Find(x => x.id == id).active = true;//se activa
+                db.objectives.Find(x => x.id == i).active = true;//se activa
             }
         }
     }
@@ -60,7 +60,7 @@ public class ObjectiveDBController : MonoBehaviour {
             ob.complete = true;
             unlocks(id);
         }
-
+        GameManager.instance.currentObjectives = currentObjectives();
     }
 
     public bool isUnlockable(int id)
@@ -91,4 +91,10 @@ public class ObjectiveDBController : MonoBehaviour {
     {
         return db.objectives.Find(x => x.id == i).complete;
     }
+
+    public void Save()
+    {
+
+    }
+
 }

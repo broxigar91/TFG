@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public GameObject inv;
     public GameObject party;
     public GameObject menu;
+    public List<Objective> currentObjectives;
     public GameState state = GameState.MAP;
     public int encounter_chance,rn,zona_actual;
     public GameObject jobManager;
@@ -79,8 +80,8 @@ public class GameManager : MonoBehaviour {
         menu.SetActive(false);
         encounter_chance = 4;
         zona_actual = 1;
-
-
+        currentObjectives = new List<Objective>();
+        currentObjectives = this.GetComponent<ObjectiveDBController>().currentObjectives();                
         /* trozo random de codigo para probar cosas*/
         //Party.instance.characters[0].setJob("Black Mage");
 
@@ -147,6 +148,10 @@ public class GameManager : MonoBehaviour {
             menu.SetActive(true);
             Time.timeScale = 0f;
             state = GameState.PAUSE;
+        }
+        else
+        {
+            ResumeGame();
         }
     }
 

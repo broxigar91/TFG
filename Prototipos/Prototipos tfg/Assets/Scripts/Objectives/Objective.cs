@@ -11,6 +11,7 @@ public class Objective {
     public bool complete;
     public List<int> requisits;
     public List<int> unlocks;
+
 }
 
 [System.Serializable]

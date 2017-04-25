@@ -1,0 +1,43 @@
+{
+  "objectives": [
+    {
+      "id": 1,
+      "description": "el primer objetivo",
+      "active": true,
+      "complete": false,
+      "unlocks": [2]
+    },
+    {
+      "id": 2,
+      "description": "el segundo",
+      "active": false,
+      "complete": false,
+      "requisits": [ 1 ],
+      "unlocks": [ 3, 4 ]
+    },
+    {
+      "id": 3,
+      "description": "el tercero",
+      "active": false,
+      "complete": false,
+      "requisits": [ 2 ],
+      "unlocks": [ 5 ]
+    },
+    {
+      "id": 4,
+      "description": "el cuarto",
+      "active": false,
+      "complete": false,
+      "requisits": [ 2 ],
+      "unlocks": [ 5 ]
+    },
+    {
+      "id": 5,
+      "description": "el quinto",
+      "active": false,
+      "complete": false,
+      "requisits": [3,4]
+    }
+  ]
+
+}
