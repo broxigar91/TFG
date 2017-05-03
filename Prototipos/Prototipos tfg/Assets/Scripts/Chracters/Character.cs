@@ -14,8 +14,6 @@ public class Character:Unit{
         public int jobXP;  //experiencia del trabajo actual
     }
 
-
-    public string portrait; //"foto" del personaje
     public int currentExp; //experiencia actual del personaje
     public int lvlupExp; //experiencia necesaria para subir de nivel
     

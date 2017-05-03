@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ItemEvent.cs" />
-    <Compile Include="Assets\ObjectiveTrigger.cs" />
     <Compile Include="Assets\RPGTALK\Demo\Scripts\DemoScript.cs" />
     <Compile Include="Assets\RPGTALK\RPGTalk.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
@@ -101,14 +100,17 @@
     <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\Objectives\Objective.cs" />
     <Compile Include="Assets\Scripts\Objectives\ObjectiveDBController.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveTrigger.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\Selector.cs" />
     <Compile Include="Assets\Scripts\Skills\Heal.cs" />
     <Compile Include="Assets\Scripts\Skills\Piro.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillUI.cs" />
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
@@ -131,6 +133,8 @@
     <Compile Include="Assets\VIDE\VIDE_Data.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\90&apos;s RPG Soundtrack\ReadMe!!.txt" />
+    <None Include="Assets\RPG Battle Music\readme.txt" />
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />

@@ -138,6 +138,8 @@
     <Compile Include="Assets\VIDE\Editor\VIDE_Editor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\90&apos;s RPG Soundtrack\ReadMe!!.txt" />
+    <None Include="Assets\RPG Battle Music\readme.txt" />
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />

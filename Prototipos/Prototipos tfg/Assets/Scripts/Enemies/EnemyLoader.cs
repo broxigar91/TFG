@@ -15,7 +15,7 @@ public class EnemyLoader : MonoBehaviour {
 	
     public Enemy getbyName(string name)
     {
-        return db.enemies.Find(enem => enem.name == name);
+        return db.enemies.Find(enem => enem.Unitname == name);
     }
 
     public List<Enemy> getByZone(int z)

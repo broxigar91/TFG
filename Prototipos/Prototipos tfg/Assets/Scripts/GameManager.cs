@@ -13,15 +13,11 @@ public enum GameState
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
-    public GameObject player;
+    public GameObject player, inv, party, menu, enemyDB, jobManager, skillManager;
     private float playedTime;
-    public GameObject inv;
-    public GameObject party;
-    public GameObject menu;
     public List<Objective> currentObjectives;
     public GameState state = GameState.MAP;
     public int encounter_chance,rn,zona_actual;
-    public GameObject jobManager;
 
     void Awake()
     {
@@ -39,6 +35,8 @@ public class GameManager : MonoBehaviour {
         startPlayer();
         startParty();
         startJobManager();
+        Instantiate(enemyDB);
+        Instantiate(skillManager);
     }
 
     void startJobManager()
@@ -91,7 +89,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       /* if(state== GameState.MAP)
+      if(state== GameState.MAP)
         {
             rn = Random.Range(0,100);
 
@@ -99,7 +97,7 @@ public class GameManager : MonoBehaviour {
             {
                 enterBattle();
             }
-        }*/
+        }
     }
 
 

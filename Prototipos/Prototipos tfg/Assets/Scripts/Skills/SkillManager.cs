@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour {
 
+    public static SkillManager instance;
+
+    void Awake()
+    {
+        if(instance==null)
+        {
+            instance = this;
+        }
+        else if(instance!=this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     public List<Skill> skills;
 	// Use this for initialization
@@ -17,12 +32,12 @@ public class SkillManager : MonoBehaviour {
         Debug.Log(canUse("Black Mage",1).Count+ "asdasd");
 	}
 	
-    List<Skill> getByJob(string jobName)
+    public List<Skill> getByJob(string jobName)
     {
         return skills.FindAll(s => s.job == jobName);
     }
 
-    List<Skill> canUse(string jobName, int lvl)
+    public List<Skill> canUse(string jobName, int lvl)
     {
         return skills.FindAll(s => s.job == jobName && s.joblvl == lvl);
     }

@@ -10,9 +10,11 @@ public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Instantiate(enemydb);
+        /*Instantiate(enemydb);
         cosis = new Dictionary<string, int>();
-        cosas();
+        cosas();*/
+
+        //cosas2();
         
         
 	}
@@ -22,6 +24,16 @@ public class Test : MonoBehaviour {
 		
 	}
 
+
+    void cosas2()
+    {
+        GameObject ob = GameObject.Find("Jobs");
+
+        if(ob!=null)
+        {
+            Debug.Log(ob.GetComponent<JobManager>().jobs.Count+"jiji");
+        }
+    }
 
    void cosas()
     {
@@ -38,6 +50,14 @@ public class Test : MonoBehaviour {
         else if(sk.name == "Heal")
         {
             sk.GetComponent<Heal>().use();
+        }
+    }
+
+    void LateUpdate()
+    {
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            cosas2();
         }
     }
 }

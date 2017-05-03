@@ -40,6 +40,15 @@ public class Skill: MonoBehaviour {
     
     public void use()
     {
+        BattleController bc = GameObject.Find("BattleManager").GetComponent<BattleController>();
+
+        if(bc.CurrentState==BattleController.BattleState.PLAYER_CHOICE)
+        {
+            user = bc.getMemberOnAction();
+        }
+        
+
+
         switch(sType)
         {
             case skillType.DAMAGE:
@@ -67,5 +76,9 @@ public class Skill: MonoBehaviour {
             case skillType.HEAL_STATUS:
                 break;
         }
+
+
+        bc.info.skill = this;
+        bc.CurrentState = BattleController.BattleState.SELECT_TARGET;
     }
 }

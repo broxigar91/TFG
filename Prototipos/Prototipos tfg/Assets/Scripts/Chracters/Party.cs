@@ -6,7 +6,7 @@ using System.IO;
 public class Party : MonoBehaviour {
 
     public static Party instance = null;
-    public List<Character> characters = new List<Character>();
+    public List<Character> characters;
 
 
     void Awake()
@@ -25,8 +25,18 @@ public class Party : MonoBehaviour {
 
     void Start()
     {
-        characters = GameManager.instance.GetComponent<CharacterLoader>().db.characters;
+        Character[] c = this.gameObject.GetComponentsInChildren<Character>();
+        foreach(Character ch in c)
+        {
+            characters.Add(ch);
+        }
     }
+
+    public Sprite getPortrait(string name)
+    {
+        return this.gameObject.transform.Find(name).GetComponent<SpriteRenderer>().sprite;
+    }
+
 
     public void addToParty(string name)
     {

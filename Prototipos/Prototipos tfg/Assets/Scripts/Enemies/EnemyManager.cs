@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour {
 
     public Sprite getSprite(int i)
     {
-        return gameObject.transform.GetChild(i).GetComponent<Sprite>();
+        return gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite;
     }
 
     public Animator getAnimator(int i)

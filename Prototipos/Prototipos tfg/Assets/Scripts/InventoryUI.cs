@@ -34,10 +34,20 @@ public class InventoryUI : MonoBehaviour {
 
     public void Reload()
     {
+        List<GameObject> c=new List<GameObject>();
+
+        for(int i =0;i<gameObject.transform.childCount;i++)
+        {
+            c.Add(gameObject.transform.GetChild(i).gameObject);
+        }
+
+        c.ForEach(x => Destroy(x.gameObject));
+
         paintItems();
     }
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
 }

@@ -1,11 +1,12 @@
 {
-  "characters": [
-    {
-      "name": "Memer1",
-      "str": 12
-    },
-    {
-      "name": "Member2"
-    }
-  ]
+	"characters":[
+		{
+			"Unitname": "meme1",
+			"str":12
+		},
+		{
+			"Unitname": "mem2",
+			"str":13
+		}
+	]
 }
