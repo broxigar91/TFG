@@ -49,7 +49,7 @@ public class Skill: MonoBehaviour {
         
 
 
-        switch(sType)
+       /* switch(sType)
         {
             case skillType.DAMAGE:
 
@@ -76,7 +76,7 @@ public class Skill: MonoBehaviour {
             case skillType.HEAL_STATUS:
                 break;
         }
-
+        */
 
         bc.info.skill = this;
         bc.CurrentState = BattleController.BattleState.SELECT_TARGET;

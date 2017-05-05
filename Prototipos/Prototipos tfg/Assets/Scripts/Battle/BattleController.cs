@@ -21,14 +21,14 @@ public class BattleController : MonoBehaviour {
 
     public struct targetingInfo
     {
-        public int user;
         public int target;
         public Skill skill;
+        public Item it;
     }
 
     public targetingInfo info;
     private List<Character> battleMembers = new List<Character>();
-    private List<Enemy> enemyMembers = new List<Enemy>();
+    public List<Enemy> enemyMembers = new List<Enemy>();
     private BattleState currentState;
     private int enemyType;
     private float waitTime = 10.0f;
@@ -36,6 +36,7 @@ public class BattleController : MonoBehaviour {
     private int pchoice,echoice;
     private bool actionRealized;
     private int zone;
+    private string optionSelected;
     private Animator ae1, ae2, ae3;
     public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3;
     public Text h1, h2, h3, m1, m2, m3;
@@ -107,15 +108,15 @@ public class BattleController : MonoBehaviour {
                 {
                     if (echoice == 0)
                     {
-                        
+                        //ia
                     }
                     else if (echoice == 1)
                     {
-                        
+                        //ia
                     }
                     else
                     {
-                        
+                        //ia
                     }
                     actionRealized = false;
                     currentState = BattleState.WAITING;
@@ -128,15 +129,50 @@ public class BattleController : MonoBehaviour {
                 //inflinge daño el jugador
                 if(pchoice!=-1)
                 {
-                    actionRealized = true;
-                    if(enemyMembers.FindAll(x=> x.hp ==0).Count == 3)
+                    if(info.skill.magicdmg)
                     {
-                        currentState = BattleState.WIN;
+                        Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
+                        enemyMembers[info.target].hp = (int)(battleMembers[pchoice].intelect / enemyMembers[info.target].mdef * info.skill.damage);
+                        Debug.Log("vida final: " + enemyMembers[info.target].hp);
                     }
+                    else
+                    {
+                        enemyMembers[info.target].hp = (int)(battleMembers[pchoice].str / enemyMembers[info.target].def * info.skill.damage);
+                    }
+
+
+                    //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
+                    if(enemyMembers[info.target].hp==0)
+                    {
+                        if(info.target==0)
+                        {
+                            e1.gameObject.SetActive(false);
+                        }
+                        else if(info.target==1)
+                        {
+                            e2.gameObject.SetActive(false);
+                        }
+                        else
+                        {
+                            e3.gameObject.SetActive(false);
+                        }
+                    }
+
+                    actionRealized = true;
+                    currentState = BattleState.WAITING;
                 }
                 else // dalo de los enemigos
                 {
 
+                }
+
+                if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
+                {
+                    currentState = BattleState.WIN;
+                }
+                if(battleMembers.FindAll(x=>x.hp ==0).Count==3)
+                {
+                    currentState = BattleState.LOSE;
                 }
 
                 break;
@@ -217,6 +253,7 @@ public class BattleController : MonoBehaviour {
         {
             skills.SetActive(true);
             getSkills();
+            optionSelected = "skills";
         }
         else
         {
@@ -277,17 +314,6 @@ public class BattleController : MonoBehaviour {
         }
 
     }
-
-    public void calcDmg(int skilldmg, bool magicdmg, bool all)
-    {
-        int totaldmg;
-
-        if(pchoice!=-1)
-        {
-
-        }
-    }
-
 
     public int getPchoice()
     {

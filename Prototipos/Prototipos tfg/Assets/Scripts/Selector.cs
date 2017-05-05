@@ -54,6 +54,8 @@ public class Selector : MonoBehaviour {
 
     public int targetSelected()
     {
+        GameObject.Find("SkillsContainer").SetActive(false);
+        this.gameObject.SetActive(false);
         return choice;
     }
 
