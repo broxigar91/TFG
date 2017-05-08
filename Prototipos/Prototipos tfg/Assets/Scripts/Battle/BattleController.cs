@@ -14,6 +14,7 @@ public class BattleController : MonoBehaviour {
         ENEMY_CHOICE,
         SELECT_TARGET,
         DMG_PHASE,
+        ITEM_USE,
         WIN,
         LOSE,
         EXIT
@@ -24,6 +25,7 @@ public class BattleController : MonoBehaviour {
         public int target;
         public Skill skill;
         public Item it;
+        public bool enemy;
     }
 
     public targetingInfo info;
@@ -33,7 +35,7 @@ public class BattleController : MonoBehaviour {
     private int enemyType;
     private float waitTime = 10.0f;
     private float cd1;
-    private int pchoice,echoice;
+    private int pchoice,echoice,dmg;
     private bool actionRealized;
     private int zone;
     private string optionSelected;
@@ -129,34 +131,56 @@ public class BattleController : MonoBehaviour {
                 //inflinge daño el jugador
                 if(pchoice!=-1)
                 {
-                    if(info.skill.magicdmg)
+                    Unit target;
+                    if(info.enemy)
                     {
-                        Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
-                        enemyMembers[info.target].hp = (int)(battleMembers[pchoice].intelect / enemyMembers[info.target].mdef * info.skill.damage);
-                        Debug.Log("vida final: " + enemyMembers[info.target].hp);
+                        target = enemyMembers[info.target];
                     }
                     else
                     {
-                        enemyMembers[info.target].hp = (int)(battleMembers[pchoice].str / enemyMembers[info.target].def * info.skill.damage);
+                        target = battleMembers[info.target];
                     }
 
-
-                    //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
-                    if(enemyMembers[info.target].hp==0)
+                    if(info.skill.sType == Skill.skillType.HEAL)
                     {
-                        if(info.target==0)
+                        target.hp += (int)(info.skill.damage + battleMembers[pchoice].intelect * 0.8);
+                    }
+                    else if(info.skill.sType == Skill.skillType.DAMAGE)
+                    {
+                        if (info.skill.magicdmg)
                         {
-                            e1.gameObject.SetActive(false);
-                        }
-                        else if(info.target==1)
-                        {
-                            e2.gameObject.SetActive(false);
+                            Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
+                            dmg= (int)(battleMembers[pchoice].intelect / target.mdef * info.skill.damage);
+                            target.hp -= dmg;
+                            Debug.Log("Daño inflingido: " + dmg);
+                            Debug.Log("vida final: " + enemyMembers[info.target].hp);
                         }
                         else
                         {
-                            e3.gameObject.SetActive(false);
+                            target.hp = (int)(battleMembers[pchoice].str / target.def * info.skill.damage);
+                        }
+
+                        //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
+                        if (enemyMembers[info.target].hp == 0)
+                        {
+                            if (info.target == 0)
+                            {
+                                e1.gameObject.SetActive(false);
+                            }
+                            else if (info.target == 1)
+                            {
+                                e2.gameObject.SetActive(false);
+                            }
+                            else
+                            {
+                                e3.gameObject.SetActive(false);
+                            }
                         }
                     }
+
+
+
+
 
                     actionRealized = true;
                     currentState = BattleState.WAITING;
@@ -179,11 +203,11 @@ public class BattleController : MonoBehaviour {
 
             case BattleState.SELECT_TARGET:
 
-                selector.SetActive(true);
 
                 if(sel.target_selected)
                 {
                     info.target = sel.targetSelected();
+                    info.enemy = sel.enemySelected();
                     currentState = BattleState.DMG_PHASE;
                     Debug.Log("he pasado a fase de daño");
                 }
@@ -218,6 +242,19 @@ public class BattleController : MonoBehaviour {
 
                 break;
 
+            case BattleState.ITEM_USE:
+
+                if(info.it.hp_restore!=0)
+                {
+                    
+                }
+
+                if(info.it.status_restore!=-1)
+                {
+                    
+                }
+
+                break;
             case BattleState.WIN:
 
                 /*set xp*/

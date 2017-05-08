@@ -5,13 +5,14 @@ using System;
 
 public enum Itemtype
 {
-    POTION, //0
-    WEAPON,//1
-    ARMOR_HELMET, //2
-    ARMOR_CHEST, //3
-    ARMOR_LEGS, //4
-    ARMOR_BOOTS, //5
-    ARMOR_GLOVES //6
+    HP_POTION, //0
+    STATUS_POTION,//1
+    WEAPON,//2
+    ARMOR_HELMET, //3
+    ARMOR_CHEST, //4
+    ARMOR_LEGS, //5
+    ARMOR_BOOTS, //6
+    ARMOR_GLOVES //7
 }
 
 [System.Serializable]
@@ -40,14 +41,9 @@ public class Item {
 
     public void use()
     {
-        if(hp_restore!=0) //cura vida
-        {
-
-        }
-        else //cura estados alterados
-        {
-
-        }
+        BattleController bc = GameObject.Find("BattleManager").GetComponent<BattleController>();
+        bc.info.it = this;
+        bc.CurrentState = BattleController.BattleState.SELECT_TARGET;
     }
 
 }

@@ -31,8 +31,6 @@ public class Skill: MonoBehaviour {
     public string job;
     public int manaCost;
     public bool canAll; //booleano que indica si la habilidad puede lanzarse a varios objetivos
-    public Unit target;
-    public Unit user;
     public statusType status;
     public bool magicdmg;
     public Sprite sp;
@@ -41,14 +39,7 @@ public class Skill: MonoBehaviour {
     public void use()
     {
         BattleController bc = GameObject.Find("BattleManager").GetComponent<BattleController>();
-
-        if(bc.CurrentState==BattleController.BattleState.PLAYER_CHOICE)
-        {
-            user = bc.getMemberOnAction();
-        }
-        
-
-
+     
        /* switch(sType)
         {
             case skillType.DAMAGE:
@@ -80,5 +71,7 @@ public class Skill: MonoBehaviour {
 
         bc.info.skill = this;
         bc.CurrentState = BattleController.BattleState.SELECT_TARGET;
+        bc.skills.SetActive(false);
+        bc.selector.SetActive(true);
     }
 }
