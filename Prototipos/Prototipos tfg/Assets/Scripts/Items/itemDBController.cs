@@ -38,4 +38,9 @@ public class itemDBController : MonoBehaviour {
         return db.items.Exists(item => item.id == id);
     }
 
+    public List<Item> getPotions()
+    {
+        return db.items.FindAll(item => item.type == Itemtype.HP_POTION && item.type == Itemtype.STATUS_POTION);
+    }
+
 }

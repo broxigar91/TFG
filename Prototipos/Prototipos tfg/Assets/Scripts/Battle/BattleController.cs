@@ -42,7 +42,7 @@ public class BattleController : MonoBehaviour {
     private Animator ae1, ae2, ae3;
     public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3;
     public Text h1, h2, h3, m1, m2, m3;
-    public GameObject actionPanel,skills,skillUIPrefab,selector;
+    public GameObject actionPanel,skills,skillUIPrefab,selector,items;
     public List<Skill> current_skills;
     private Selector sel;
 
@@ -141,42 +141,53 @@ public class BattleController : MonoBehaviour {
                         target = battleMembers[info.target];
                     }
 
-                    if(info.skill.sType == Skill.skillType.HEAL)
+                    if(info.skill!=null)
                     {
-                        target.hp += (int)(info.skill.damage + battleMembers[pchoice].intelect * 0.8);
-                    }
-                    else if(info.skill.sType == Skill.skillType.DAMAGE)
-                    {
-                        if (info.skill.magicdmg)
+                        if (info.skill.sType == Skill.skillType.HEAL)
                         {
-                            Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
-                            dmg= (int)(battleMembers[pchoice].intelect / target.mdef * info.skill.damage);
-                            target.hp -= dmg;
-                            Debug.Log("Daño inflingido: " + dmg);
-                            Debug.Log("vida final: " + enemyMembers[info.target].hp);
+                            target.hp += (int)(info.skill.damage + battleMembers[pchoice].intelect * 0.8);
                         }
-                        else
+                        else if (info.skill.sType == Skill.skillType.DAMAGE)
                         {
-                            target.hp = (int)(battleMembers[pchoice].str / target.def * info.skill.damage);
-                        }
-
-                        //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
-                        if (enemyMembers[info.target].hp == 0)
-                        {
-                            if (info.target == 0)
+                            if (info.skill.magicdmg)
                             {
-                                e1.gameObject.SetActive(false);
-                            }
-                            else if (info.target == 1)
-                            {
-                                e2.gameObject.SetActive(false);
+                                Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
+                                dmg = (int)(battleMembers[pchoice].intelect / target.mdef * info.skill.damage);
+                                target.hp -= dmg;
+                                Debug.Log("Daño inflingido: " + dmg);
+                                Debug.Log("vida final: " + enemyMembers[info.target].hp);
                             }
                             else
                             {
-                                e3.gameObject.SetActive(false);
+                                target.hp = (int)(battleMembers[pchoice].str / target.def * info.skill.damage);
+                            }
+
+                            //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
+                            if (enemyMembers[info.target].hp == 0)
+                            {
+                                if (info.target == 0)
+                                {
+                                    e1.gameObject.SetActive(false);
+                                }
+                                else if (info.target == 1)
+                                {
+                                    e2.gameObject.SetActive(false);
+                                }
+                                else
+                                {
+                                    e3.gameObject.SetActive(false);
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        dmg= (int)(battleMembers[pchoice].str - target.def);
+                        target.hp -= dmg;
+                        Debug.Log("he hecho daño fisico de un ataque normal"); 
+                    }
+
+                    
 
 
 
@@ -258,6 +269,19 @@ public class BattleController : MonoBehaviour {
             case BattleState.WIN:
 
                 /*set xp*/
+                int totalexp = 0;
+                int jobexp = 0;
+                enemyMembers.ForEach(x =>
+                {
+                    totalexp += x.baseExp;
+                    jobexp += x.jobExp;
+                });
+
+                battleMembers.ForEach(x =>
+                {
+                    x.expGain(totalexp, jobexp);
+                });
+
 
                 break;
 
@@ -275,8 +299,8 @@ public class BattleController : MonoBehaviour {
 
     public void Attack()
     {
-        Debug.Log("Accion del jugador" + pchoice);
-        actionRealized = true;
+        currentState = BattleState.SELECT_TARGET;
+        selector.SetActive(true);
     }
 
     public void Exit()
@@ -307,7 +331,7 @@ public class BattleController : MonoBehaviour {
         }
 
         current_skills = SkillManager.instance.getByJob(battleMembers[pchoice].job.jobName);
-        Transform go = GameObject.Find("Content").transform;
+        Transform go = skills.transform.Find("Content");
 
         Debug.Log(current_skills.Count+"skills");
 
@@ -323,6 +347,21 @@ public class BattleController : MonoBehaviour {
 
         Debug.Log(go.childCount + "asdaaaadddwww");
     }
+
+    public void getPotions()
+    {
+        List<Item> it = Inventory.inventory.getPotions();
+
+        Transform go = items.transform.Find("Content");
+
+        foreach(Item x in it)
+        {
+            GameObject ob = Instantiate();
+            
+        }
+    }
+
+
 
     void reloadSkills()
     {

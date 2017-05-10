@@ -28,6 +28,24 @@ public class Inventory : MonoBehaviour {
         itemList = new List<InvItem>();
     }
 
+    public List<Item> getPotions()
+    {
+        List<Item> aux = new List<Item>();
+        List<Item> pots = new List<Item>();
+
+        aux = GameManager.instance.GetComponent<itemDBController>().getPotions();
+
+        aux.ForEach(x =>
+        {
+            if(inInventory(x.id))
+            {
+                pots.Add(x);
+            }
+        });
+
+        return pots;
+    }
+
     public void addItem(int id)
     {
         //busco en la base de datos si ese item existe

@@ -25,14 +25,21 @@ public class Character:Unit{
 
 
 
-    public void expGain(int expGained)
+    public void expGain(int expGained,int jobxP)
     {
         currentExp += expGained;
+        currentJobInfo.jobXP += jobxP;
 
-        if(currentExp >= lvlupExp)
+        while(currentExp >= lvlupExp)
         {
             currentExp = currentExp - lvlupExp; //si es = sera 0, si es > será la diferencia
             lvlUp();
+        }
+
+        while(currentJobInfo.jobXP>=job.joblvl[currentJobInfo.currentJoblvl])
+        {
+            currentJobInfo.jobXP -= job.joblvl[currentJobInfo.currentJoblvl];
+            currentJobInfo.currentJoblvl++;
         }
 
     }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Enemy: Unit{
     public int id;
     public int baseExp; //experiencia que da este enemigo
+    public int jobExp;
     public int zone; //zona de aparicion de los enemigos
 }
 

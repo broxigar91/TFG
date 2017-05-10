@@ -26,7 +26,7 @@ public class ObjectiveDBController : MonoBehaviour {
     public void unlocks(int id) //este metdo desbloquea todos aquellos objetivos que se desbloquean a partir del objetivo pasado por parametro (en caso de poderse)
     {
         Objective ob = db.objectives.Find(x => x.id == id);//obtenemos el objetivo que nos concierne
-        Objective o;
+        
         foreach(int i in ob.unlocks)//miramos en cada objetivo que desbloquea
         {
             if(isUnlockable(i))//en caso de que pueda ser desbloqueado
