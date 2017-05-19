@@ -42,7 +42,7 @@ public class BattleController : MonoBehaviour {
     private Animator ae1, ae2, ae3;
     public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3;
     public Text h1, h2, h3, m1, m2, m3;
-    public GameObject actionPanel,skills,skillUIPrefab,selector,items;
+    public GameObject actionPanel,skills,skillUIPrefab,selector,items,itemUIPrefab;
     public List<Skill> current_skills;
     private Selector sel;
 
@@ -356,7 +356,11 @@ public class BattleController : MonoBehaviour {
 
         foreach(Item x in it)
         {
-            GameObject ob = Instantiate();
+            GameObject ob = Instantiate(itemUIPrefab);
+            ob.transform.Find("Item").GetComponentInChildren<Text>().text = x.itemName;
+            ob.transform.GetComponentInChildren<Button>().onClick.AddListener(delegate { x.use(); });
+            ob.transform.SetParent(go);
+            ob.transform.localScale = new Vector3(1, 1, 1);
             
         }
     }
@@ -365,7 +369,7 @@ public class BattleController : MonoBehaviour {
 
     void reloadSkills()
     {
-        Transform t = skills.transform.FindChild("Content");
+        Transform t = skills.transform.Find("Content");
 
         List<GameObject> c = new List<GameObject>();
 

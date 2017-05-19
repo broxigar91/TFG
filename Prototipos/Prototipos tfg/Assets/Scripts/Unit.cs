@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit:MonoBehaviour {
 
     public string Unitname;
+    public int maxHp;
     public int hp;
     public int str;
     public int def;

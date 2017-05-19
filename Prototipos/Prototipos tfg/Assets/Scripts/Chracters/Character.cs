@@ -4,7 +4,6 @@ using UnityEngine;
 
 
 
-
 [System.Serializable]
 public class Character:Unit{
 
@@ -22,6 +21,7 @@ public class Character:Unit{
     public Job job;
     public currentJobData currentJobInfo;
     public Dictionary<Itemtype, Item> equip;
+    private Dictionary<string,char> growth;
 
 
 
@@ -46,8 +46,16 @@ public class Character:Unit{
 
     public void lvlUp()
     {
+        int rng;
+
         level++;
         lvlupExp = level * 100; //1 -> 100, 2-> 200, 3-> 300
+
+        rng = Random.Range(0, 100);
+
+        //HP
+
+
     }
 
     public void setJob(string j)
