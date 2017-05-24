@@ -21,7 +21,7 @@ public class Character:Unit{
     public Job job;
     public currentJobData currentJobInfo;
     public Dictionary<Itemtype, Item> equip;
-    private Dictionary<string,char> growth;
+    public List<char> grow;
 
 
 
@@ -46,17 +46,492 @@ public class Character:Unit{
 
     public void lvlUp()
     {
-        int rng;
-
         level++;
         lvlupExp = level * 100; //1 -> 100, 2-> 200, 3-> 300
 
-        rng = Random.Range(0, 100);
-
-        //HP
-
-
+        maxHp += growUp(grow[0], true);
+        str += growUp(grow[1], false);
+        def += growUp(grow[2], false);
+        intelect += growUp(grow[3], false);
+        mdef += growUp(grow[4], false);
+        spe += growUp(grow[5], false);
     }
+
+    private int growUp(char range, bool isHP)
+    {
+        int points=0;
+        int rng;
+        rng = Random.Range(0, 100);
+        switch (range)
+        {
+            case 'S':
+                if(level >=1 && level <=19)
+                {      
+                    if (isHP)
+                    {
+                        if(rng < 50)
+                        {
+                            points = 24;
+                        }
+                        else
+                        {
+                            points = 23;
+                        }
+                    }
+                    else
+                    {
+                        if(rng < 25)
+                        {
+                            points = 5;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                }
+                else if(level >=20 && level <=59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 10;
+                        }
+                        else
+                        {
+                            points = 9;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 75)
+                        {
+                            points = 3;
+                        }
+                        else
+                        {
+                            points = 2;
+                        }
+                    }
+                }
+                else if (level >=60 && level <=99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+
+                break;
+            case 'A':
+                if (level >= 1 && level <= 19)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 20;
+                        }
+                        else
+                        {
+                            points = 18;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 90)
+                        {
+                            points = 5;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                }
+                else if (level >= 20 && level <= 59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 10;
+                        }
+                        else
+                        {
+                            points = 8;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 90)
+                        {
+                            points = 2;
+                        }
+                        else
+                        {
+                            points = 1;
+                        }
+                    }
+                }
+                else if (level >= 60 && level <= 99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                break;
+            case 'B':
+                if (level >= 1 && level <= 19)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 12;
+                        }
+                        else
+                        {
+                            points = 10;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 35)
+                        {
+                            points = 4;
+                        }
+                        else
+                        {
+                            points = 3;
+                        }
+                    }
+                }
+                else if (level >= 20 && level <= 59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 9;
+                        }
+                        else
+                        {
+                            points = 8;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 35)
+                        {
+                            points = 3;
+                        }
+                        else
+                        {
+                            points = 2;
+                        }
+                    }
+                }
+                else if (level >= 60 && level <= 99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                break;
+            case 'C':
+                if (level >= 1 && level <= 19)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 10;
+                        }
+                        else
+                        {
+                            points = 9;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 40)
+                        {
+                            points = 3;
+                        }
+                        else
+                        {
+                            points = 2;
+                        }
+                    }
+                }
+                else if (level >= 20 && level <= 59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 9;
+                        }
+                        else
+                        {
+                            points = 7;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 75)
+                        {
+                            points = 2;
+                        }
+                        else
+                        {
+                            points = 1;
+                        }
+                    }
+                }
+                else if (level >= 60 && level <= 99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                break;
+            case 'D':
+                if (level >= 1 && level <= 19)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 9;
+                        }
+                        else
+                        {
+                            points = 7;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 40)
+                        {
+                            points = 2;
+                        }
+                        else
+                        {
+                            points = 1;
+                        }
+                    }
+                }
+                else if (level >= 20 && level <= 59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 7;
+                        }
+                        else
+                        {
+                            points = 5;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 90)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                else if (level >= 60 && level <= 99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                break;
+            case 'E':
+                if (level >= 1 && level <= 19)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 7;
+                        }
+                        else
+                        {
+                            points = 5;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 90)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                else if (level >= 20 && level <= 59)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 4;
+                        }
+                        else
+                        {
+                            points = 3;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 60)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                else if (level >= 60 && level <= 99)
+                {
+                    if (isHP)
+                    {
+                        if (rng < 50)
+                        {
+                            points = 6;
+                        }
+                        else
+                        {
+                            points = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (rng < 50)
+                        {
+                            points = 1;
+                        }
+                        else
+                        {
+                            points = 0;
+                        }
+                    }
+                }
+                break;
+        }
+
+        return points;
+    }
+
 
     public void setJob(string j)
     {

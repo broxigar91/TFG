@@ -115,7 +115,6 @@
     <Compile Include="Assets\Scripts\Skills\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillUI.cs" />
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
-    <Compile Include="Assets\Scripts\StatGrow.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\Vendor.cs" />
