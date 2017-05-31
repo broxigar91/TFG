@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
-    public GameObject gameManager;
-    //public GameObject soundManager;
+    public GameObject startPosition;
 
 
 	// Use this for initialization
-	void Awake ()
+	void Start ()
     {
-		if(GameManager.instance == null)
-        {
-            Instantiate(gameManager);
-        }
+        Player.instance.transform.position = startPosition.transform.position;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

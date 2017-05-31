@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
         startJobManager();
         Instantiate(enemyDB);
         Instantiate(skillManager);
+        DontDestroyOnLoad(menu);
     }
 
     void startJobManager()
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         menu.SetActive(false);
-        encounter_chance = 4;
+        encounter_chance = -1;
         zona_actual = 1;
         currentObjectives = new List<Objective>();
         currentObjectives = this.GetComponent<ObjectiveDBController>().currentObjectives();                

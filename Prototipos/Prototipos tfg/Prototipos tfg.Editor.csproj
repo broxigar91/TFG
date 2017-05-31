@@ -140,8 +140,10 @@
   <ItemGroup>
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\Ciudadtest.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\mazmorratest.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\License.txt" />
     <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />

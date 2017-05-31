@@ -221,6 +221,7 @@ public class BattleController : MonoBehaviour {
                     info.enemy = sel.enemySelected();
                     currentState = BattleState.DMG_PHASE;
                     Debug.Log("he pasado a fase de daño");
+                    sel.target_selected = false;
                 }
 
                 break;
