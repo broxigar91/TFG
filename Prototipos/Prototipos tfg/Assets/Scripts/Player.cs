@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public static Player instance;
     Rigidbody2D playerBody;
     Animator anim;
+    public RPGTalk rpgtalk;
+    string touching;
 
     // Use this for initialization
     void Awake () {
@@ -34,8 +36,8 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 
-       // if(GameManager.instance.state == GameState.MAP)
-       // {
+       if(GameManager.instance.state == GameState.MAP)
+       {
 
             //se utiliza el GetAxisRaw en vez del GetAxis porque nos da directamente 0 o 1 en el eje indicado mientras que con el otro va aumentando de valor
             Vector2 move_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -53,7 +55,9 @@ public class Player : MonoBehaviour {
 
             playerBody.MovePosition(playerBody.position + move_vector * Time.deltaTime);
 
-        //}
+        }
 
     }
+
+
 }

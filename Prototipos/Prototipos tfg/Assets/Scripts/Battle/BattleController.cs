@@ -55,6 +55,8 @@ public class BattleController : MonoBehaviour {
         actionRealized = false;
         actionPanel.SetActive(false);
         e1.sprite = EnemyManager.instance.getSprite(enemyMembers[0].id);
+        e2.sprite = EnemyManager.instance.getSprite(enemyMembers[1].id);
+        e3.sprite = EnemyManager.instance.getSprite(enemyMembers[2].id);
         sel = selector.GetComponent<Selector>();
         
         //current_skills = new List<Skill>();
@@ -306,7 +308,14 @@ public class BattleController : MonoBehaviour {
 
     public void Exit()
     {
-        currentState = BattleState.EXIT;
+        int rn;
+        rn = Random.Range(0, 100);
+
+        if(rn > 50)
+        {
+            currentState = BattleState.EXIT;
+        }
+        actionRealized = true;
     }
 
     public void toggleSkills()

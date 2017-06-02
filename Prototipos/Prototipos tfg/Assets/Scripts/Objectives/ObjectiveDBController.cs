@@ -53,7 +53,7 @@ public class ObjectiveDBController : MonoBehaviour {
 
     public void complete(int id)
     {
-        Objective ob = db.objectives.Find(x => x.id == id);
+        Objective ob = db.objectives.Find(x => x.id == id && x.active);
 
         if(!ob.complete)
         {

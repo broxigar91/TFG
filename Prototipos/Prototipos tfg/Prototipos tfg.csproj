@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\MapController.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
+    <Compile Include="Assets\Scripts\NPC\NPCTalk.cs" />
     <Compile Include="Assets\Scripts\Objectives\Objective.cs" />
     <Compile Include="Assets\Scripts\Objectives\ObjectiveDBController.cs" />
     <Compile Include="Assets\Scripts\Objectives\ObjectiveTrigger.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
+    <Compile Include="Assets\Scripts\UnlockWay.cs" />
     <Compile Include="Assets\Scripts\Vendor.cs" />
     <Compile Include="Assets\Scripts\VendorDBController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
@@ -138,6 +140,7 @@
   <ItemGroup>
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
+    <None Include="Assets\Resources\Conversaciones\Ciudad1.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Ciudadtest.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />

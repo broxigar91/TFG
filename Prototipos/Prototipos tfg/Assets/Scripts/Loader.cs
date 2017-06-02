@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
-    public GameObject startPosition;
-
+    public RPGTalk rpgtalk;
 
 	// Use this for initialization
 	void Start ()
     {
-        Player.instance.transform.position = startPosition.transform.position;
+        Player.instance.rpgtalk = rpgtalk;
+
 	}
 	
 }

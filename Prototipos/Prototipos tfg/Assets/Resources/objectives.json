@@ -36,8 +36,16 @@
       "description": "el quinto",
       "active": false,
       "complete": false,
-      "requisits": [3,4]
-    }
+      "requisits": [3,4],
+	  "unlocks": [6]
+    },
+	{
+		"id": 6,
+		"description": "has llegado a la ciudad",
+		"active":false,
+		"complete":false,
+		"requisits": [5]
+	}
   ]
 
 }

@@ -7,7 +7,8 @@ public enum GameState
 {
     PAUSE,
     MAP,
-    BATTLE
+    BATTLE,
+    TALKING
 };
 
 public class GameManager : MonoBehaviour {
