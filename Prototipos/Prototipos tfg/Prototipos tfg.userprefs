@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Prototipos tfg.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SceneTransition.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objectives\ObjectiveDBController.cs">
     <Files>
       <File FileName="Assets\Scripts\Battle\BattleController.cs" Line="1" Column="1" />
       <File FileName="Assets\ItemEvent.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Chracters\Character.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SceneTransition.cs" Line="16" Column="1" />
+      <File FileName="Assets\Scripts\Objectives\ObjectiveDBController.cs" Line="92" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
