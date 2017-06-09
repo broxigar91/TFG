@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b114a0be6a519e54fa8c365fea53e44f
-timeCreated: 1496660151
+timeCreated: 1496846157
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -90,9 +90,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 197
-        width: 64
-        height: 64
+        y: 195.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,10 +102,10 @@ TextureImporter:
       name: 1hoursheet_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 197
-        width: 64
-        height: 64
+        x: 65
+        y: 195.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +115,10 @@ TextureImporter:
       name: 1hoursheet_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 197
-        width: 64
-        height: 64
+        x: 130
+        y: 195.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: 1hoursheet_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 197
-        width: 64
-        height: 64
+        x: 195
+        y: 195.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,9 +142,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 133
-        width: 64
-        height: 64
+        y: 130.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: 1hoursheet_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 133
-        width: 64
-        height: 64
+        x: 65
+        y: 130.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +167,10 @@ TextureImporter:
       name: 1hoursheet_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 133
-        width: 64
-        height: 64
+        x: 130
+        y: 130.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: 1hoursheet_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 133
-        width: 64
-        height: 64
+        x: 195
+        y: 130.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,9 +194,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 69
-        width: 64
-        height: 64
+        y: 65.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: 1hoursheet_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 69
-        width: 64
-        height: 64
+        x: 65
+        y: 65.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: 1hoursheet_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 69
-        width: 64
-        height: 64
+        x: 130
+        y: 65.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: 1hoursheet_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 69
-        width: 64
-        height: 64
+        x: 195
+        y: 65.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,9 +246,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
-        width: 64
-        height: 64
+        y: 0.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: 1hoursheet_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 5
-        width: 64
-        height: 64
+        x: 65
+        y: 0.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,10 +271,10 @@ TextureImporter:
       name: 1hoursheet_14
       rect:
         serializedVersion: 2
-        x: 128
-        y: 5
-        width: 64
-        height: 64
+        x: 130
+        y: 0.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: 1hoursheet_15
       rect:
         serializedVersion: 2
-        x: 192
-        y: 5
-        width: 64
-        height: 64
+        x: 195
+        y: 0.75
+        width: 65.25
+        height: 65.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -40,7 +40,7 @@ public class itemDBController : MonoBehaviour {
 
     public List<Item> getPotions()
     {
-        return db.items.FindAll(item => item.type == Itemtype.HP_POTION && item.type == Itemtype.STATUS_POTION);
+        return db.items.FindAll(item => item.type == Itemtype.HP_POTION || item.type == Itemtype.STATUS_POTION);
     }
 
 }

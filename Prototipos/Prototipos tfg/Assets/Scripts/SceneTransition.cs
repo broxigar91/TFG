@@ -8,11 +8,11 @@ public class SceneTransition : MonoBehaviour {
     public GameObject destiny;
     public string escena;
     public int zone;
-    
+
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if(escena.Length==0)
+        if (escena.Length == 0)
         {
             collider.gameObject.transform.position = destiny.transform.position;
         }
@@ -22,7 +22,6 @@ public class SceneTransition : MonoBehaviour {
             SceneManager.LoadScene(escena);
             GameManager.instance.zona_actual = zone;
         }
-
 
     }
 

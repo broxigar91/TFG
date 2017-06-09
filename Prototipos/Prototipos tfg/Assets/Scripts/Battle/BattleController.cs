@@ -332,6 +332,19 @@ public class BattleController : MonoBehaviour {
         }
     }
 
+    public void toggleItems()
+    {
+        if (!items.activeInHierarchy)
+        {
+            items.SetActive(true);
+            getPotions();
+            optionSelected = "items";
+        }
+        else
+        {
+            skills.SetActive(false);
+        }
+    }
 
     public void getSkills()
     {
@@ -362,7 +375,9 @@ public class BattleController : MonoBehaviour {
     {
         List<Item> it = Inventory.inventory.getPotions();
 
-        Transform go = items.transform.Find("Content");
+        Transform go = items.transform.GetChild(0).Find("ItemContent");
+
+        
 
         foreach(Item x in it)
         {
@@ -384,6 +399,20 @@ public class BattleController : MonoBehaviour {
         List<GameObject> c = new List<GameObject>();
 
         for(int i=0;i<t.childCount;i++)
+        {
+            c.Add(t.GetChild(i).gameObject);
+        }
+
+        c.ForEach(x => Destroy(x.gameObject));
+    }
+
+    void reloadPotions()
+    {
+        Transform t = items.transform.Find("ItemContent");
+
+        List<GameObject> c = new List<GameObject>();
+
+        for (int i = 0; i < t.childCount; i++)
         {
             c.Add(t.GetChild(i).gameObject);
         }

@@ -1,12 +1,45 @@
 {
   "items": [
     {
-      "id": 0,
-      "itemName": "hacha"
+		"id": 0,
+		"itemName": "Poción",
+		"itemDesc": "Restaura 20 de vida al objetivo",
+		"type":0,
+		"goldValue": 20,
+		"hp_restore":20
     },
     {
-      "id": 1,
-      "itemName": "espadon"
-    }
+		"id": 1,
+		"itemName": "Espada",
+		"itemDesc": "Espada corta poco afilada",
+		"type": 2,
+		"goldValue": 25,
+		"str": 5
+    },
+	{
+		"id":2,
+		"itemName": "Hacha",
+		"itemDesc": "Restaura 20 de vida al objetivo",
+		"type":2,
+		"goldValue": 20,
+		"str": 6
+	},
+	{
+		"id": 3,
+		"itemName": "Escudo de bronce",
+		"itemDesc": "Pequeño escudo de bronce",
+		"type": 2,
+		"hp": 10,
+		"def": 5
+	},
+	{
+		"id":4,
+		"itemName": "Armadura de cobre",
+		"itemDesc": "Aramadura barata hecha de cobre",
+		"type": 4,
+		"hp": 8,
+		"def":4,
+		"mdef":4
+	}
   ]
 }
