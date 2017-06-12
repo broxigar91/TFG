@@ -9,8 +9,8 @@ public class Vendor : MonoBehaviour {
 
 
 
-    public void sell(int id)
+    public void sell(int id, int quant)
     {
-        items.Find(x => x.id == id).quantity--;
+        items.Find(x => x.id == id).quantity-=quant;
     }
 }

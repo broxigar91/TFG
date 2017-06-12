@@ -5,11 +5,8 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour {
 
     //controlamos aqui el canvas que contiene el menu de pausa
-    public GameObject menu;
-    public GameObject inventoryMenu;
-    public GameObject jobsMenu;
-
-
+    public GameObject menu, inventoryMenu, jobsMenu,partyMenu;
+    
 	// Use this for initialization
 	void Start () {
         
@@ -44,6 +41,19 @@ public class PauseMenu : MonoBehaviour {
         else
         {
             jobsMenu.SetActive(false);
+        }
+    }
+
+
+    public void ToggleParty()
+    {
+        if (!partyMenu.activeInHierarchy)
+        {
+            partyMenu.SetActive(true);
+        }
+        else
+        {
+            partyMenu.SetActive(false);
         }
     }
 }
