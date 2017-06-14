@@ -39,8 +39,7 @@ public class BattleController : MonoBehaviour {
     private bool actionRealized;
     private int zone;
     private string optionSelected;
-    private Animator ae1, ae2, ae3;
-    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3;
+    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3, ee1, ee2, ee3;
     public Text h1, h2, h3, m1, m2, m3;
     public GameObject actionPanel,skills,skillUIPrefab,selector,items,itemUIPrefab;
     public List<Skill> current_skills;
@@ -58,7 +57,7 @@ public class BattleController : MonoBehaviour {
         e2.sprite = EnemyManager.instance.getSprite(enemyMembers[1].id);
         e3.sprite = EnemyManager.instance.getSprite(enemyMembers[2].id);
         sel = selector.GetComponent<Selector>();
-        
+
         //current_skills = new List<Skill>();
     }
 	
@@ -73,8 +72,15 @@ public class BattleController : MonoBehaviour {
                 c1.fillAmount = 0.0f;
                 c2.fillAmount = 0.0f;
                 c3.fillAmount = 0.0f;
+                ee1.fillAmount = 0.0f;
+                ee2.fillAmount = 0.0f;
+                ee3.fillAmount = 0.0f;
+
                 currentState = BattleState.WAITING;
-                h1.text = battleMembers[0].Unitname;
+                h1.text = battleMembers[0].hp +"/"+battleMembers[0].maxHp;
+                h2.text = battleMembers[1].hp + "/" + battleMembers[1].maxHp;
+                h3.text = battleMembers[2].hp + "/" + battleMembers[2].maxHp;
+
                 portrait1.sprite = Party.instance.getPortrait(battleMembers[0].Unitname);
                 break;
 
@@ -112,28 +118,44 @@ public class BattleController : MonoBehaviour {
                 {
                     if (echoice == 0)
                     {
-                        //ia
+                        ee1.fillAmount = 0.0f;
                     }
                     else if (echoice == 1)
                     {
-                        //ia
+                        ee2.fillAmount = 0.0f;
                     }
                     else
                     {
-                        //ia
+                        ee3.fillAmount = 0.0f;
                     }
                     actionRealized = false;
                     currentState = BattleState.WAITING;
                 }
 
+                int min = 100000;                
+                foreach(Character c in battleMembers)
+                {
+                    if(c.hp!=0 && c.hp<min)
+                    {
+                        min = c.hp;
+                        info.target = battleMembers.IndexOf(c);
+                    }
+                }
+
+                currentState = BattleState.DMG_PHASE;
+                
+
+
                 break;
 
             case BattleState.DMG_PHASE:
 
+                Unit target;
+
                 //inflinge daño el jugador
-                if(pchoice!=-1)
+                if (pchoice!=-1)
                 {
-                    Unit target;
+                    
                     if(info.enemy)
                     {
                         target = enemyMembers[info.target];
@@ -184,23 +206,26 @@ public class BattleController : MonoBehaviour {
                     }
                     else
                     {
+                        Debug.Log("Enemigo:" + info.target);
+                        Debug.Log("Vida antes del ataque: " + target.hp);
                         dmg= (int)(battleMembers[pchoice].str - target.def);
                         target.hp -= dmg;
+                        Debug.Log("Vida despuess del ataque: " + target.hp);
+                        Debug.Log("jeje ok:" + enemyMembers[info.target].hp);
                         Debug.Log("he hecho daño fisico de un ataque normal"); 
                     }
-
-                    
-
-
-
-
-
                     actionRealized = true;
                     currentState = BattleState.WAITING;
                 }
-                else // dalo de los enemigos
+                else // daño de los enemigos
                 {
+                    target = battleMembers[info.target];
+                    //de momento solo daño fisico
+                    dmg = (int)(enemyMembers[echoice].str - target.def);
+                    target.hp -= dmg;
 
+                    actionRealized = true;
+                    currentState = BattleState.WAITING;
                 }
 
                 if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
@@ -234,7 +259,7 @@ public class BattleController : MonoBehaviour {
                 pchoice = -1;
                 echoice = -1;
 
-                if (c1.fillAmount!=1.0f)
+                if (c1.fillAmount!=1.0f && battleMembers[0].hp!=0)
                 {
                     c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
                 }
@@ -244,7 +269,7 @@ public class BattleController : MonoBehaviour {
                     currentState = BattleState.PLAYER_CHOICE;
                 }
 
-                if (c2.fillAmount != 1.0f)
+                if (c2.fillAmount != 1.0f && battleMembers[1].hp != 0)
                 {
                     c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
                 }
@@ -252,6 +277,27 @@ public class BattleController : MonoBehaviour {
                 {
                     pchoice = 1;
                     currentState = BattleState.PLAYER_CHOICE;
+                }
+                
+                if (c3.fillAmount != 1.0f && battleMembers[2].hp != 0)
+                {
+                    c3.fillAmount += 0.85f / waitTime * Time.deltaTime;
+                }
+                else
+                {
+                    pchoice = 2;
+                    currentState = BattleState.PLAYER_CHOICE;
+                }
+
+                
+                if (ee1.fillAmount!=1.0f && enemyMembers[0].hp!=0)
+                {
+                    ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                }
+                else
+                {
+                    echoice = 0;
+                    currentState = BattleState.ENEMY_CHOICE;
                 }
 
                 break;

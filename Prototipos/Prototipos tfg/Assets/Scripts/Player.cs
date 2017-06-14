@@ -44,13 +44,13 @@ public class Player : MonoBehaviour {
 
             if (move_vector != Vector2.zero)
             {
-                anim.SetBool("isWalking", true);
-                anim.SetFloat("input_X", move_vector.x);
-                anim.SetFloat("input_Y", move_vector.y);
+                anim.SetBool("is_walking", true);
+                anim.SetFloat("input_x", move_vector.x);
+                anim.SetFloat("input_y", move_vector.y);
             }
             else
             {
-                anim.SetBool("isWalking", false);
+                anim.SetBool("is_walking", false);
             }
 
             playerBody.MovePosition(playerBody.position + move_vector * Time.deltaTime);

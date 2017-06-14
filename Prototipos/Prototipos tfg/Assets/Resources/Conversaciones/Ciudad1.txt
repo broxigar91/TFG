@@ -1,7 +1,15 @@
-Aldeana1: ¿Sabías que al oeste de aquí hay una mazmorra misteriosa?
-Aldeana1: Tal vez deberías de acercarte a explorar...
+Aldeana: ¿Sabías que al oeste de aquí hay una mazmorra misteriosa?
+Ricky: ¿En serio?, no sabia nada, acabo de llegar a la ciudad.
+Aldeana: Tal vez deberías de acercarte a explorar...
 
-Aldeana2: Esta ciudad está en construcción, el resto de los aldeanos llegarán pronto.
-Aldeana2: Tal ver debería ir a preparar la cena... es practicamente la hora.
+Aldeana: Esta ciudad está en construcción, el resto de los aldeanos llegarán pronto.
+Aldeana: Tal ver debería ir a preparar la cena... es prácticamente la hora.
 
-Aldeano1: Eres raro, no eres de por aqui... ¡¡no me gustas!!
+Aldeano: Eres raro, no eres de por aqui... ¡¡no me gustas!!
+Ricky: Vaya...eso ha dolido.
+
+Aldeana:Oh,un visitante, no pensaba que llegaría alguien tan pronto ya que no somos una ciudad como tal aún...
+Aldeana:Por cierto, el nombre de la ciudad es Vallona, recuerdalo bien, dentro de poco seremos de las más importantes...
+Aldeana:jajaja,o eso creo jajaj.
+
+Aldeano:

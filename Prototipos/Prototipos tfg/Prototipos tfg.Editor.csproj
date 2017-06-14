@@ -141,6 +141,7 @@
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Resources\Conversaciones\Ciudad1.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\Ciudad1Ineriores.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Ciudadtest.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
