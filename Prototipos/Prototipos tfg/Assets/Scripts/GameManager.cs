@@ -120,6 +120,13 @@ public class GameManager : MonoBehaviour {
             Party.instance.characters[0].setJob("Black Mage");
             Debug.Log(Party.instance.characters[0].job.jobName);
         }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            Party.instance.characters.ForEach(
+                x => x.expGain(10, 10)
+            );
+        }
     }
 
     void OnDestroy()

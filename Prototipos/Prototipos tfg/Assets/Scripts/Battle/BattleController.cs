@@ -91,6 +91,8 @@ public class BattleController : MonoBehaviour {
                     actionPanel.SetActive(true);
                 }
 
+                Debug.Log("El delta time es " + Time.deltaTime);
+
                 if(actionRealized==true)
                 {
                     if(pchoice==0)
@@ -131,21 +133,20 @@ public class BattleController : MonoBehaviour {
                     actionRealized = false;
                     currentState = BattleState.WAITING;
                 }
-
-                int min = 100000;                
-                foreach(Character c in battleMembers)
+                else
                 {
-                    if(c.hp!=0 && c.hp<min)
+                    int min = 100000;
+                    foreach (Character c in battleMembers)
                     {
-                        min = c.hp;
-                        info.target = battleMembers.IndexOf(c);
+                        if (c.hp != 0 && c.hp < min)
+                        {
+                            min = c.hp;
+                            info.target = battleMembers.IndexOf(c);
+                        }
                     }
+
+                    currentState = BattleState.DMG_PHASE;
                 }
-
-                currentState = BattleState.DMG_PHASE;
-                
-
-
                 break;
 
             case BattleState.DMG_PHASE:
@@ -212,10 +213,10 @@ public class BattleController : MonoBehaviour {
                         target.hp -= dmg;
                         Debug.Log("Vida despuess del ataque: " + target.hp);
                         Debug.Log("jeje ok:" + enemyMembers[info.target].hp);
-                        Debug.Log("he hecho daño fisico de un ataque normal"); 
+                        Debug.Log("ataque normal");
                     }
                     actionRealized = true;
-                    currentState = BattleState.WAITING;
+                    currentState = BattleState.PLAYER_CHOICE;
                 }
                 else // daño de los enemigos
                 {
@@ -223,9 +224,9 @@ public class BattleController : MonoBehaviour {
                     //de momento solo daño fisico
                     dmg = (int)(enemyMembers[echoice].str - target.def);
                     target.hp -= dmg;
-
+                    Debug.Log("EL ENEMIGO ATACO");
                     actionRealized = true;
-                    currentState = BattleState.WAITING;
+                    currentState = BattleState.ENEMY_CHOICE;
                 }
 
                 if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
@@ -259,7 +260,7 @@ public class BattleController : MonoBehaviour {
                 pchoice = -1;
                 echoice = -1;
 
-                if (c1.fillAmount!=1.0f && battleMembers[0].hp!=0)
+                if (c1.fillAmount<1.0f && battleMembers[0].hp!=0)
                 {
                     c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
                 }
@@ -267,9 +268,10 @@ public class BattleController : MonoBehaviour {
                 {
                     pchoice = 0;
                     currentState = BattleState.PLAYER_CHOICE;
+                    break;
                 }
 
-                if (c2.fillAmount != 1.0f && battleMembers[1].hp != 0)
+                if (c2.fillAmount < 1.0f && battleMembers[1].hp != 0)
                 {
                     c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
                 }
@@ -277,9 +279,10 @@ public class BattleController : MonoBehaviour {
                 {
                     pchoice = 1;
                     currentState = BattleState.PLAYER_CHOICE;
+                    break;
                 }
                 
-                if (c3.fillAmount != 1.0f && battleMembers[2].hp != 0)
+                if (c3.fillAmount < 1.0f && battleMembers[2].hp != 0)
                 {
                     c3.fillAmount += 0.85f / waitTime * Time.deltaTime;
                 }
@@ -287,17 +290,20 @@ public class BattleController : MonoBehaviour {
                 {
                     pchoice = 2;
                     currentState = BattleState.PLAYER_CHOICE;
+                    break;
                 }
 
                 
-                if (ee1.fillAmount!=1.0f && enemyMembers[0].hp!=0)
+                if (ee1.fillAmount<1.0f && enemyMembers[0].hp!=0)
                 {
                     ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
                 }
                 else
                 {
                     echoice = 0;
+                    pchoice = -1;
                     currentState = BattleState.ENEMY_CHOICE;
+                    break;
                 }
 
                 break;

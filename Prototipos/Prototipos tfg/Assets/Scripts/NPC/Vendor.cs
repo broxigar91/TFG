@@ -13,4 +13,9 @@ public class Vendor : MonoBehaviour {
     {
         items.Find(x => x.id == id).quantity-=quant;
     }
+
+    public void displayStore()
+    {
+
+    }
 }
