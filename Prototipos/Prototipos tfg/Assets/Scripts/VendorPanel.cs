@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Checkout : MonoBehaviour {
+public class VendorPanel : MonoBehaviour {
 
-    public GameObject checkPanel;
+    public GameObject checkPanel,itemList,vendorBuy;
     private int itemPrice;
 
     public int ItemPrice
@@ -26,7 +26,20 @@ public class Checkout : MonoBehaviour {
 
     }
 
+    public void DisplayItems()
+    {
 
-    
+    }
 
+    public void ToggleBuyMenu()
+    {
+        if(vendorBuy.activeInHierarchy==false)
+        {
+            vendorBuy.SetActive(true);
+        }
+        else
+        {
+            vendorBuy.SetActive(false);
+        }
+    }
 }

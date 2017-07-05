@@ -83,7 +83,6 @@
     <Compile Include="Assets\RPGTALK\RPGTalk.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
     <Compile Include="Assets\Scripts\Battle\Testeo1cosa.cs" />
-    <Compile Include="Assets\Scripts\Checkout.cs" />
     <Compile Include="Assets\Scripts\Chracters\Character.cs" />
     <Compile Include="Assets\Scripts\Chracters\CharacterLoader.cs" />
     <Compile Include="Assets\Scripts\Chracters\Party.cs" />
@@ -122,6 +121,7 @@
     <Compile Include="Assets\Scripts\UIScripts\PartyUI.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnlockWay.cs" />
+    <Compile Include="Assets\Scripts\VendorPanel.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />
