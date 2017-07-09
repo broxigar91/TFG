@@ -39,6 +39,7 @@ public class BattleController : MonoBehaviour {
     private bool actionRealized;
     private int zone;
     private string optionSelected;
+    public List<Image> timebars;
     public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3, ee1, ee2, ee3;
     public Text h1, h2, h3, m1, m2, m3;
     public GameObject actionPanel,skills,skillUIPrefab,selector,items,itemUIPrefab;
@@ -91,50 +92,14 @@ public class BattleController : MonoBehaviour {
                     actionPanel.SetActive(true);
                 }
 
-                Debug.Log("El delta time es " + Time.deltaTime);
+                //Debug.Log("El delta time es " + Time.deltaTime);
 
-                if(actionRealized==true)
-                {
-                    if(pchoice==0)
-                    {
-                        c1.fillAmount = 0.0f;
-                    }
-                    else if(pchoice == 1)
-                    {
-                        c2.fillAmount = 0.0f;
-                    }
-                    else
-                    {
-                        c3.fillAmount = 0.0f;
-                    }
-                    actionRealized = false;
-                    currentState = BattleState.WAITING;
-                }
 
 
                 break;
 
             case BattleState.ENEMY_CHOICE:
 
-                if (actionRealized == true)
-                {
-                    if (echoice == 0)
-                    {
-                        ee1.fillAmount = 0.0f;
-                    }
-                    else if (echoice == 1)
-                    {
-                        ee2.fillAmount = 0.0f;
-                    }
-                    else
-                    {
-                        ee3.fillAmount = 0.0f;
-                    }
-                    actionRealized = false;
-                    currentState = BattleState.WAITING;
-                }
-                else
-                {
                     int min = 100000;
                     foreach (Character c in battleMembers)
                     {
@@ -146,7 +111,7 @@ public class BattleController : MonoBehaviour {
                     }
 
                     currentState = BattleState.DMG_PHASE;
-                }
+                
                 break;
 
             case BattleState.DMG_PHASE:
@@ -216,7 +181,7 @@ public class BattleController : MonoBehaviour {
                         Debug.Log("ataque normal");
                     }
                     actionRealized = true;
-                    currentState = BattleState.PLAYER_CHOICE;
+                    currentState = BattleState.WAITING;
                 }
                 else // daño de los enemigos
                 {
@@ -226,7 +191,7 @@ public class BattleController : MonoBehaviour {
                     target.hp -= dmg;
                     Debug.Log("EL ENEMIGO ATACO");
                     actionRealized = true;
-                    currentState = BattleState.ENEMY_CHOICE;
+                    currentState = BattleState.WAITING;
                 }
 
                 if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
@@ -257,53 +222,80 @@ public class BattleController : MonoBehaviour {
             case BattleState.WAITING:
 
                 actionPanel.SetActive(false);
+
+                if (actionRealized == true)
+                {
+                    if (pchoice == 0)
+                    {
+                        c1.fillAmount = 0.0f;
+                    }
+                    else if (pchoice == 1)
+                    {
+                        c2.fillAmount = 0.0f;
+                    }
+                    else
+                    {
+                        c3.fillAmount = 0.0f;
+                    }
+
+                    if(echoice==0)
+                    {
+                        ee1.fillAmount = 0.0f;
+                    }
+                    actionRealized = false;
+                    currentState = BattleState.WAITING;
+                }
+                                
                 pchoice = -1;
                 echoice = -1;
-
-                if (c1.fillAmount<1.0f && battleMembers[0].hp!=0)
-                {
-                    c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
-                }
-                else
+                
+                if(c1.fillAmount>=1.0f)
                 {
                     pchoice = 0;
                     currentState = BattleState.PLAYER_CHOICE;
                     break;
                 }
-
-                if (c2.fillAmount < 1.0f && battleMembers[1].hp != 0)
-                {
-                    c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
-                }
-                else
+                else if(c2.fillAmount>=1.0)
                 {
                     pchoice = 1;
                     currentState = BattleState.PLAYER_CHOICE;
                     break;
                 }
-                
-                if (c3.fillAmount < 1.0f && battleMembers[2].hp != 0)
-                {
-                    c3.fillAmount += 0.85f / waitTime * Time.deltaTime;
-                }
-                else
+                else if(c3.fillAmount>=1.0)
                 {
                     pchoice = 2;
                     currentState = BattleState.PLAYER_CHOICE;
                     break;
                 }
-
-                
-                if (ee1.fillAmount<1.0f && enemyMembers[0].hp!=0)
-                {
-                    ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
-                }
-                else
+                else if(ee1.fillAmount>=1.0)
                 {
                     echoice = 0;
                     pchoice = -1;
                     currentState = BattleState.ENEMY_CHOICE;
                     break;
+                }
+
+
+                if (c1.fillAmount<1.0f && battleMembers[0].hp!=0)
+                {
+                    c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
+                }
+
+
+                if (c2.fillAmount < 1.0f && battleMembers[1].hp != 0)
+                {
+                    c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                }
+
+                
+                if (c3.fillAmount < 1.0f && battleMembers[2].hp != 0)
+                {
+                    c3.fillAmount += 0.85f / waitTime * Time.deltaTime;
+                }
+
+                if (ee1.fillAmount<1.0f && enemyMembers[0].hp!=0)
+                {
+                    ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
                 }
 
                 break;
