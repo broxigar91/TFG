@@ -52,7 +52,7 @@ public class InventoryEditor : Editor {
                 int itemIndex;
                 if (dictionary.TryGetValue(options[index], out itemIndex))
                 {
-                    context.addItem(itemIndex);
+                    context.addItem(itemIndex,1);
                 }
 
             }
