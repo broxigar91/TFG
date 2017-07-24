@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour {
         return pots;
     }
 
-    public void addItem(int id)
+    public void addItem(int id,int q)
     {
         //busco en la base de datos si ese item existe
         //si el inventario no esta lleno...
@@ -55,11 +55,11 @@ public class Inventory : MonoBehaviour {
             //si ya esta en el inventario se incrementa la cantidad
             if(inInventory(id))
             {
-                addQuantity(id, 1);
+                addQuantity(id, q);
             }
             else
             {
-                itemList.Add(new InvItem(id));
+                itemList.Add(new InvItem(id,q));
                 //checkear para objetivo
             }
                
