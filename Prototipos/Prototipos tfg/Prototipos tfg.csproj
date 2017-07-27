@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLoader.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\FadeManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\Scripts\Skills\Thunder.cs" />
     <Compile Include="Assets\Scripts\TESTEOS\Test.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\ObjectivesUI.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PartyUI.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnlockWay.cs" />

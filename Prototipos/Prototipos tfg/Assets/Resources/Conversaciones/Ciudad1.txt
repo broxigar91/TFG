@@ -12,4 +12,5 @@ Aldeana:Oh,un visitante, no pensaba que llegaría alguien tan pronto ya que no s
 Aldeana:Por cierto, el nombre de la ciudad es Vallona, recuerdalo bien, dentro de poco seremos de las más importantes...
 Aldeana:jajaja,o eso creo jajaj.
 
-Aldeano:
+Vendedor: Hola, ¿en que puedo ayudarle?
+Vendedor: Gracias por su visita.

@@ -14,12 +14,14 @@ public class Vendor : MonoBehaviour {
     public void Buy(int id, int quant)
     {
         Inventory inv = Inventory.inventory;
-
+        Debug.Log("cant" +quant);
         if(inv.inInventory(id))
         {
             inv.addQuantity(id, quant);
         }
     }
+
+
 
     public void displayStore()
     {
@@ -39,24 +41,43 @@ public class Vendor : MonoBehaviour {
 
     public void LoadItems()
     {
+        Transform t = vendorBuy.transform.Find("ItemContainer");
+
+        if(t.childCount!=0)
+        {
+            ReloadItems();
+        }
+
         List<Item> it = new List<Item>();
 
         items.ForEach(
             x => it.Add(GameManager.instance.GetComponent<itemDBController>().getById(x))    
         );
+               
 
-
-        Transform t = vendorBuy.transform.Find("ItemContainer");
-        
-        foreach(Item i in it)
+        foreach (Item i in it)
         {
             GameObject go = Instantiate(itemPrefab);
             go.transform.Find("ItemName").GetComponent<Text>().text = i.itemName;
             go.transform.Find("ItemCost").GetComponent<Text>().text = i.goldValue.ToString();
-            go.transform.GetComponentInChildren<Button>().onClick.AddListener(delegate { this.SelectItem(i.id); });
+            go.transform.Find("ItemName").GetComponent<Button>().onClick.AddListener(delegate { this.SelectItem(i.id); });
             go.transform.SetParent(t);
             go.transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public void ReloadItems()
+    {
+        Transform t = vendorBuy.transform.Find("ItemContainer");
+
+        List<GameObject> c = new List<GameObject>();
+
+        for (int i = 0; i < t.childCount; i++)
+        {
+            c.Add(t.GetChild(i).gameObject);
+        }
+
+        c.ForEach(x => Destroy(x.gameObject));
     }
    
 
@@ -72,17 +93,24 @@ public class Vendor : MonoBehaviour {
         desc.text = itemSelected.itemDesc;
         quantity.text = sl.value.ToString();
         cost.text = (itemSelected.goldValue * (int)sl.value).ToString();
-        checkPanel.GetComponentInChildren<Button>().onClick.AddListener(delegate { Buy(itemSelected.id,(int)sl.value); });
-
     }
 
+
+    public void BuyUpdate()
+    {
+        Buy(itemSelected.id, (int)sl.value);
+    }
 
     public void SelectItem(int id)
     {
         itemSelected = GameManager.instance.GetComponent<itemDBController>().getById(id);
         checkoutInfoUpdate();
     }
-
-
     
+
+    public void Exit()
+    {
+        displayStore();
+        GameManager.instance.state = GameState.MAP;
+    }
 }

@@ -10,7 +10,7 @@ public class SceneTransition : MonoBehaviour {
     public int zone;
 
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public IEnumerator OnTriggerEnter2D(Collider2D collider)
     {
         if (escena.Length == 0)
         {
@@ -18,6 +18,12 @@ public class SceneTransition : MonoBehaviour {
         }
         else
         {
+
+            FadeManager fm = GameObject.Find("Fader").GetComponent<FadeManager>();
+
+
+            yield return StartCoroutine(fm.FadeToBlack());
+
             collider.gameObject.transform.position = destiny.transform.position;
             SceneManager.LoadScene(escena);
             GameManager.instance.zona_actual = zone;

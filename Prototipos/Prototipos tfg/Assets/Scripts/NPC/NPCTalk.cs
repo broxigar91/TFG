@@ -11,18 +11,30 @@ public class NPCTalk : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        rpgtalk.callbackScript = this;
+        Debug.Log(rpgtalk == null);
         rpgtalk.lineToStart = start;
         rpgtalk.lineToBreak = end;
-        rpgtalk.callbackFunction = "endTalking";
+
+        if(this.tag != "Vendor")
+        {
+            rpgtalk.callbackScript = this;
+            rpgtalk.callbackFunction = "endTalking";
+            
+        }
+        else
+        {
+            rpgtalk.callbackScript = gameObject.GetComponent<Vendor>();
+            rpgtalk.callbackFunction = "displayStore";
+        }
     }
 
     void LateUpdate()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.instance.state = GameState.TALKING;
             rpgtalk.NewTalk();
+            GameManager.instance.state = GameState.TALKING;
+            
         }
     }
 
