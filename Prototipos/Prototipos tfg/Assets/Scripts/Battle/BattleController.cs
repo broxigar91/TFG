@@ -40,10 +40,12 @@ public class BattleController : MonoBehaviour {
     private int zone;
     private string optionSelected;
     public List<Image> timebars;
-    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3, ee1, ee2, ee3;
-    public Text h1, h2, h3, m1, m2, m3;
+    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3, ee1, ee2, ee3, background;
+    public List<Text> health;
+    public List<Text> mana;
     public GameObject actionPanel,skills,skillUIPrefab,selector,items,itemUIPrefab;
     public List<Skill> current_skills;
+    public List<Text> dmgUI;
     private Selector sel;
 
     // Use this for initialization
@@ -60,6 +62,15 @@ public class BattleController : MonoBehaviour {
         sel = selector.GetComponent<Selector>();
 
         //current_skills = new List<Skill>();
+
+        if(GameManager.instance.zona_actual==1)
+        {
+            background.sprite = Resources.Load<Sprite>("Character_sprites/grass");
+        }
+        if(GameManager.instance.zona_actual==3)
+        {
+            background.sprite = Resources.Load<Sprite>("Character_sprites/mountain");
+        }
     }
 	
 	// Update is called once per frame
@@ -77,12 +88,15 @@ public class BattleController : MonoBehaviour {
                 ee2.fillAmount = 0.0f;
                 ee3.fillAmount = 0.0f;
 
-                currentState = BattleState.WAITING;
-                h1.text = battleMembers[0].hp +"/"+battleMembers[0].maxHp;
-                h2.text = battleMembers[1].hp + "/" + battleMembers[1].maxHp;
-                h3.text = battleMembers[2].hp + "/" + battleMembers[2].maxHp;
+                int cont = 0;
+                foreach(Text t in health)
+                {
+                    t.text = battleMembers[cont].hp + " / " + battleMembers[cont].maxHp;
+                }
+                
 
                 portrait1.sprite = Party.instance.getPortrait(battleMembers[0].Unitname);
+                currentState = BattleState.WAITING;
                 break;
 
             case BattleState.PLAYER_CHOICE:
@@ -176,6 +190,7 @@ public class BattleController : MonoBehaviour {
                         Debug.Log("Vida antes del ataque: " + target.hp);
                         dmg= (int)(battleMembers[pchoice].str - target.def);
                         target.hp -= dmg;
+                        StartCoroutine(DmgUI(info.target,true, dmg));
                         Debug.Log("Vida despuess del ataque: " + target.hp);
                         Debug.Log("jeje ok:" + enemyMembers[info.target].hp);
                         Debug.Log("ataque normal");
@@ -189,6 +204,8 @@ public class BattleController : MonoBehaviour {
                     //de momento solo daño fisico
                     dmg = (int)(enemyMembers[echoice].str - target.def);
                     target.hp -= dmg;
+
+                    StartCoroutine(DmgUI(info.target, false, dmg));
                     Debug.Log("EL ENEMIGO ATACO");
                     actionRealized = true;
                     currentState = BattleState.WAITING;
@@ -501,4 +518,16 @@ public class BattleController : MonoBehaviour {
         }
     }
 
+
+    private IEnumerator DmgUI(int id, bool enemy, int dmg)
+    {
+        if(!enemy)
+        {
+            id = id + 3;
+        }
+        dmgUI[id].enabled = true;
+        dmgUI[id].text = dmg.ToString();
+        yield return new WaitForSeconds(5);
+        dmgUI[id].enabled = false;
+    }
 }
