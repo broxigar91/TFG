@@ -7,6 +7,7 @@ public class JobUI : MonoBehaviour {
 
     public GameObject job;
     private JobManager jM;
+    public List<Text> jobInfo;
 
 
 	// Use this for initialization
@@ -26,9 +27,19 @@ public class JobUI : MonoBehaviour {
         foreach(Job jb in jM.getAll())
         {
             GameObject j = Instantiate(job);
-            j.transform.GetComponentInChildren<Text>().text = jb.name;
+            j.transform.GetComponentInChildren<Text>().text = jb.jobName;
+            j.transform.GetComponent<Button>().onClick.AddListener(delegate { PaintJobInfo(jb.jobName); });
             j.transform.SetParent(this.transform);
             j.transform.transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    void PaintJobInfo(string j)
+    {
+        Job jb = jM.getJob(j);
+
+        jobInfo[0].text = jb.jobName;
+        jobInfo[1].text = jb.description;
+        jobInfo[2].text = jb.str + "/n/n" + jb.def + "/n/n" + jb.intelect + "/n/n" + jb.mdef + "/n/n" + jb.spe;
     }
 }
