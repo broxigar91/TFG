@@ -49,7 +49,13 @@ public class EnemyManager : MonoBehaviour {
         List<Enemy> aux = getByZone(z);
         List<Enemy> en = new List<Enemy>();
         int rn;
-        
+
+        if (z == 4)
+        {
+            en.Add(Instantiate(aux[0]) as Enemy);
+            return en;
+        }
+
         while (en.Count < 3)
         {
             rn = Random.Range(0, aux.Count);

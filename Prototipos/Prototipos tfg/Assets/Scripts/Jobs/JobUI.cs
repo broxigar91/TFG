@@ -22,7 +22,7 @@ public class JobUI : MonoBehaviour {
 	}
 
 
-    void paintJobs()
+    public void paintJobs()
     {
         foreach(Job jb in jM.getAll())
         {
@@ -34,12 +34,12 @@ public class JobUI : MonoBehaviour {
         }
     }
 
-    void PaintJobInfo(string j)
+    public void PaintJobInfo(string j)
     {
         Job jb = jM.getJob(j);
 
         jobInfo[0].text = jb.jobName;
         jobInfo[1].text = jb.description;
-        jobInfo[2].text = jb.str + "/n/n" + jb.def + "/n/n" + jb.intelect + "/n/n" + jb.mdef + "/n/n" + jb.spe;
+        jobInfo[2].text = jb.str + "\n\n" + jb.def + "\n\n" + jb.intelect + "\n\n" + jb.mdef + "\n\n" + jb.spe;
     }
 }

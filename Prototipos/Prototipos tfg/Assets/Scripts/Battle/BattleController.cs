@@ -30,17 +30,17 @@ public class BattleController : MonoBehaviour {
 
     public targetingInfo info;
     private List<Character> battleMembers = new List<Character>();
-    public List<Enemy> enemyMembers = new List<Enemy>();
+    private List<Enemy> enemyMembers = new List<Enemy>();
     private BattleState currentState;
     private int enemyType;
-    private float waitTime = 10.0f;
+    private float waitTime;
     private float cd1;
     private int pchoice,echoice,dmg;
     private bool actionRealized;
     private int zone;
     private string optionSelected;
-    public List<Image> timebars;
-    public Image c1, c2, c3, portrait1, portrait2, portrait3, e1, e2, e3, ee1, ee2, ee3, background;
+    public List<Image> timebars,backgrounds,enemySprites;
+    public Image c1, c2, c3, portrait1, portrait2, portrait3, ee1, ee2, ee3, background;
     public List<Text> health;
     public List<Text> mana;
     public GameObject actionPanel,skills,skillUIPrefab,selector,items,itemUIPrefab;
@@ -53,24 +53,43 @@ public class BattleController : MonoBehaviour {
         zone = GameManager.instance.zona_actual;
         battleMembers = Party.instance.characters;
         enemyMembers = EnemyManager.instance.toBattle(zone);
-        currentState = BattleState.START;
+
+        waitTime = 10.0f;
+
         actionRealized = false;
         actionPanel.SetActive(false);
-        e1.sprite = EnemyManager.instance.getSprite(enemyMembers[0].id);
-        e2.sprite = EnemyManager.instance.getSprite(enemyMembers[1].id);
-        e3.sprite = EnemyManager.instance.getSprite(enemyMembers[2].id);
+
+        if(zone!=4)
+        {
+            enemySprites[0].sprite = EnemyManager.instance.getSprite(enemyMembers[0].id);
+            enemySprites[1].sprite = EnemyManager.instance.getSprite(enemyMembers[1].id);
+            enemySprites[2].sprite = EnemyManager.instance.getSprite(enemyMembers[2].id);
+
+        }
+        else
+        {
+            enemySprites[1].sprite = EnemyManager.instance.getSprite(enemyMembers[0].id);
+            ee1.transform.parent.gameObject.SetActive(false);
+            ee3.transform.parent.gameObject.SetActive(false);
+        }
+
         sel = selector.GetComponent<Selector>();
+        portrait1.sprite = Party.instance.getPortrait(battleMembers[0].Unitname);
+        portrait2.sprite = Party.instance.getPortrait(battleMembers[1].Unitname);
+        portrait3.sprite = Party.instance.getPortrait(battleMembers[2].Unitname);
 
         //current_skills = new List<Skill>();
 
-        if(GameManager.instance.zona_actual==1)
+        if (GameManager.instance.zona_actual==1)
         {
-            background.sprite = Resources.Load<Sprite>("Character_sprites/grass");
+            background.sprite = backgrounds[0].sprite;
         }
         if(GameManager.instance.zona_actual==3)
         {
-            background.sprite = Resources.Load<Sprite>("Character_sprites/mountain");
+            background.sprite = backgrounds[1].sprite;
         }
+
+        currentState = BattleState.START;
     }
 	
 	// Update is called once per frame
@@ -92,10 +111,12 @@ public class BattleController : MonoBehaviour {
                 foreach(Text t in health)
                 {
                     t.text = battleMembers[cont].hp + " / " + battleMembers[cont].maxHp;
+                    cont++;
                 }
-                
 
-                portrait1.sprite = Party.instance.getPortrait(battleMembers[0].Unitname);
+
+
+                
                 currentState = BattleState.WAITING;
                 break;
 
@@ -149,38 +170,27 @@ public class BattleController : MonoBehaviour {
                     {
                         if (info.skill.sType == Skill.skillType.HEAL)
                         {
-                            target.hp += (int)(info.skill.damage + battleMembers[pchoice].intelect * 0.8);
+                            target.hp += (int)(info.skill.damage + battleMembers[pchoice].m_int * 0.8);
                         }
                         else if (info.skill.sType == Skill.skillType.DAMAGE)
                         {
                             if (info.skill.magicdmg)
                             {
                                 Debug.Log("vida inicial: " + enemyMembers[info.target].hp);
-                                dmg = (int)(battleMembers[pchoice].intelect / target.mdef * info.skill.damage);
+                                dmg = (int)(battleMembers[pchoice].m_int / target.mdef * info.skill.damage);
+
+                                if (dmg < 0)
+                                {
+                                    dmg = 0;
+                                }
+
                                 target.hp -= dmg;
                                 Debug.Log("Daño inflingido: " + dmg);
                                 Debug.Log("vida final: " + enemyMembers[info.target].hp);
                             }
                             else
                             {
-                                target.hp = (int)(battleMembers[pchoice].str / target.def * info.skill.damage);
-                            }
-
-                            //si la vida del enemigo seleccionado llega a 0 desactivamos su imagen
-                            if (enemyMembers[info.target].hp == 0)
-                            {
-                                if (info.target == 0)
-                                {
-                                    e1.gameObject.SetActive(false);
-                                }
-                                else if (info.target == 1)
-                                {
-                                    e2.gameObject.SetActive(false);
-                                }
-                                else
-                                {
-                                    e3.gameObject.SetActive(false);
-                                }
+                                target.hp = (int)(battleMembers[pchoice].m_str / target.def * info.skill.damage);
                             }
                         }
                     }
@@ -188,7 +198,13 @@ public class BattleController : MonoBehaviour {
                     {
                         Debug.Log("Enemigo:" + info.target);
                         Debug.Log("Vida antes del ataque: " + target.hp);
-                        dmg= (int)(battleMembers[pchoice].str - target.def);
+                        dmg= (int)(battleMembers[pchoice].m_str - target.def);
+
+                        if (dmg < 0)
+                        {
+                            dmg = 0;
+                        }
+
                         target.hp -= dmg;
                         StartCoroutine(DmgUI(info.target,true, dmg));
                         Debug.Log("Vida despuess del ataque: " + target.hp);
@@ -202,7 +218,14 @@ public class BattleController : MonoBehaviour {
                 {
                     target = battleMembers[info.target];
                     //de momento solo daño fisico
-                    dmg = (int)(enemyMembers[echoice].str - target.def);
+                    
+                    dmg = (int)(enemyMembers[echoice].str - battleMembers.Find(x=>x.Unitname == target.Unitname).m_def);
+
+                    if (dmg < 0)
+                    {
+                        dmg = 0;
+                    }
+
                     target.hp -= dmg;
 
                     StartCoroutine(DmgUI(info.target, false, dmg));
@@ -211,11 +234,21 @@ public class BattleController : MonoBehaviour {
                     currentState = BattleState.WAITING;
                 }
 
+                for(int i=0;i<enemyMembers.Count;i++)
+                {
+                    if(enemyMembers[i].hp==0)
+                    {
+                        enemyMembers[i].transform.parent.gameObject.SetActive(false);
+                    }
+                }
+                
+
+
                 if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
                 {
                     currentState = BattleState.WIN;
                 }
-                if(battleMembers.FindAll(x=>x.hp ==0).Count==3)
+                if(battleMembers.FindAll(x=>x.m_hp ==0).Count==3)
                 {
                     currentState = BattleState.LOSE;
                 }
@@ -295,24 +328,34 @@ public class BattleController : MonoBehaviour {
 
                 if (c1.fillAmount<1.0f && battleMembers[0].hp!=0)
                 {
-                    c1.fillAmount += 1.0f / waitTime * Time.deltaTime;
+                    c1.fillAmount += (battleMembers[0].m_spe *0.1f) / waitTime * Time.deltaTime;
                 }
 
 
                 if (c2.fillAmount < 1.0f && battleMembers[1].hp != 0)
                 {
-                    c2.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                    c2.fillAmount += (battleMembers[1].m_spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 
                 if (c3.fillAmount < 1.0f && battleMembers[2].hp != 0)
                 {
-                    c3.fillAmount += 0.85f / waitTime * Time.deltaTime;
+                    c3.fillAmount += (battleMembers[2].m_spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 if (ee1.fillAmount<1.0f && enemyMembers[0].hp!=0)
                 {
                     ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                }
+
+                if (ee2.fillAmount < 1.0f && enemyMembers[0].hp != 0)
+                {
+                    ee2.fillAmount += 0.86f / waitTime * Time.deltaTime;
+                }
+
+                if (ee3.fillAmount < 1.0f && enemyMembers[0].hp != 0)
+                {
+                    ee2.fillAmount += 0.7f / waitTime * Time.deltaTime;
                 }
 
                 break;
@@ -346,6 +389,7 @@ public class BattleController : MonoBehaviour {
                     x.expGain(totalexp, jobexp);
                 });
 
+                currentState = BattleState.EXIT;
 
                 break;
 
@@ -525,9 +569,12 @@ public class BattleController : MonoBehaviour {
         {
             id = id + 3;
         }
-        dmgUI[id].enabled = true;
+
+        if (enemyMembers.Count == 1)
+            id = 1;
+        dmgUI[id].gameObject.SetActive(true);
         dmgUI[id].text = dmg.ToString();
-        yield return new WaitForSeconds(5);
-        dmgUI[id].enabled = false;
+        yield return new WaitForSeconds(1);
+        dmgUI[id].gameObject.SetActive(false);
     }
 }

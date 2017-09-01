@@ -19,6 +19,10 @@ public class Vendor : MonoBehaviour {
         {
             inv.addQuantity(id, quant);
         }
+        else
+        {
+            inv.addItem(id, quant);
+        }
     }
 
 

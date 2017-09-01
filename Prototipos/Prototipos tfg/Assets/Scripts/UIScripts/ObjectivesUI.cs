@@ -23,7 +23,7 @@ public class ObjectivesUI : MonoBehaviour {
         foreach(Objective o in lob)
         {
             GameObject go = Instantiate(objectivePrebab);
-            go.GetComponent<Text>().text = o.id.ToString();
+            go.GetComponent<Text>().text = "-"+ o.description;
             go.transform.SetParent(this.transform);
             go.transform.localScale = new Vector3(1, 1, 1);
         }

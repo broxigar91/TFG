@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     public List<Objective> currentObjectives;
     public GameState state = GameState.MAP;
     public int encounter_chance,rn,zona_actual;
-
+    private int gold=10000;
     void Awake()
     {
         if(instance== null)

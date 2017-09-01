@@ -13,6 +13,8 @@ public class Character:Unit{
         public int jobXP;  //experiencia del trabajo actual
     }
 
+    public int m_hp, m_str, m_def, m_int, m_mdef, m_spe;
+
     public int currentExp; //experiencia actual del personaje
     public int lvlupExp; //experiencia necesaria para subir de nivel
     
@@ -23,7 +25,17 @@ public class Character:Unit{
     public Dictionary<Itemtype, Item> equip;
     public List<char> grow;
 
-
+    private void Start()
+    {
+        jobsInfo = new Dictionary<string, currentJobData>();
+        equip = new Dictionary<Itemtype, Item>();
+        m_hp = hp;
+        m_str = str;
+        m_def = def;
+        m_int = intelect;
+        m_mdef = mdef;
+        m_spe = spe;
+    }
 
     public void expGain(int expGained,int jobxP)
     {
@@ -535,7 +547,6 @@ public class Character:Unit{
 
     public void setJob(string j)
     {
-
         job = JobManager.instance.getJob(j);
         applyJobStats(); //aplicamos los nuevos multiplicadores
     }
@@ -543,17 +554,19 @@ public class Character:Unit{
 
     public void changeJob(string j)
     {
-        unapplyJobStats();//volvemos los stats a su forma original 
+        if(job!=null)
+        {
+            //si el diccionario ya tenia un registro del trabajo actual se actualiza
+            if (jobsInfo.ContainsKey(job.jobName))
+            {
+                jobsInfo[job.jobName] = currentJobInfo;
+            }
+            else //en caso contrario se crea el registro
+            {
+                jobsInfo.Add(job.jobName, currentJobInfo);
+            }
+        }
 
-        //si el diccionario ya tenia un registro del trabajo actual se actualiza
-        if (jobsInfo.ContainsKey(job.jobName))
-        {
-            jobsInfo[job.jobName] = currentJobInfo;
-        }
-        else //en caso contrario se crea el registro
-        {
-            jobsInfo.Add(job.jobName, currentJobInfo);
-        }
 
         if(jobsInfo.ContainsKey(j))//si ya existia registro del trabajo a cambiar, actualizamos la informacion actual del trabajo a la vez que ajustamos 
         {
@@ -573,16 +586,16 @@ public class Character:Unit{
     {
         if(job !=null)
         {
-            hp += (int)(hp * job.hp);
-            str += (int)(str * job.str);
-            def += (int)(def * job.def);
-            intelect += (int)(intelect * job.intelect);
-            mdef += (int)(mdef * job.mdef);
-            spe += (int)(spe * job.spe);
+            m_hp = hp+(int)(hp * job.hp);
+            m_str = str+(int)(str * job.str);
+            m_def = def+(int)(def * job.def);
+            m_int = intelect+(int)(intelect * job.intelect);
+            m_mdef = mdef+(int)(mdef * job.mdef);
+            m_spe = spe+(int)(spe * job.spe);
         }
     }
 
-    public void unapplyJobStats()
+   /* public void unapplyJobStats()
     {
         if (job != null)
         {
@@ -593,7 +606,7 @@ public class Character:Unit{
             mdef -= (int)(mdef * job.mdef);
             spe -= (int)(spe * job.spe);
         }
-    }
+    }*/
 
     public void equipItem(Item i)
     {

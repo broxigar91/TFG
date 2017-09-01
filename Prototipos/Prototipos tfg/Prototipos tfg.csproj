@@ -100,7 +100,6 @@
     <Compile Include="Assets\Scripts\Jobs\JobUI.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\MapController.cs" />
-    <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\NPC\NPCTalk.cs" />
     <Compile Include="Assets\Scripts\NPC\Vendor.cs" />
     <Compile Include="Assets\Scripts\Objectives\Objective.cs" />
@@ -121,6 +120,7 @@
     <Compile Include="Assets\Scripts\UIScripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectivesUI.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PartyUI.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\StatPreviewUI.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnlockWay.cs" />
     <Compile Include="Assets\Scripts\VendorPanel.cs" />
@@ -144,6 +144,7 @@
     <None Include="Assets\RPGTALK\Demo\Talks\DemosText.txt" />
     <None Include="Assets\RPGTALK\ReadMe.txt" />
     <None Include="Assets\Resources\Conversaciones\Ciudad1.txt" />
+    <None Include="Assets\Resources\Conversaciones\Mazmorra.txt" />
     <None Include="Assets\Tiled2Unity\Imported\Ciudad1Ineriores.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Ciudadtest.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Testmap1.tiled2unity.xml" />

@@ -1,16 +1,23 @@
-Aldeana: ¿Sabías que al oeste de aquí hay una mazmorra misteriosa?
-Ricky: ¿En serio?, no sabia nada, acabo de llegar a la ciudad.
-Aldeana: Tal vez deberías de acercarte a explorar...
+Aldeana morena: ¿Sabías que al este de aquí hay una mazmorra misteriosa?
+Ivankar: ¿En serio?, no sabia nada, acabo de llegar a la ciudad.
+Aldeana morena: Tal vez deberías de acercarte a explorar...
 
-Aldeana: Esta ciudad está en construcción, el resto de los aldeanos llegarán pronto.
-Aldeana: Tal ver debería ir a preparar la cena... es prácticamente la hora.
+Aldeana rubia: Esta ciudad está en construcción, el resto de los aldeanos llegarán pronto.
+Aldeana rubia: Tal ver debería ir a preparar la cena... es prácticamente la hora.
 
 Aldeano: Eres raro, no eres de por aqui... ¡¡no me gustas!!
-Ricky: Vaya...eso ha dolido.
+Ivankar: Vaya...eso ha dolido.
 
-Aldeana:Oh,un visitante, no pensaba que llegaría alguien tan pronto ya que no somos una ciudad como tal aún...
-Aldeana:Por cierto, el nombre de la ciudad es Vallona, recuerdalo bien, dentro de poco seremos de las más importantes...
-Aldeana:jajaja,o eso creo jajaj.
+Aldeana morena:Oh,un visitante, no pensaba que llegaría alguien tan pronto ya que no somos una ciudad como tal aún, solo somos un pueblo.
+Aldeana morena:Por cierto, el nombre del pueblo es Heufer, ¡recuerdalo bien!, dentro de poco podremos hacer el pueblo mas grande para ser una gran ciudad.
+Aldeana morena:jajaja,o eso creo jajaj.
+
+Aldeano: ¿De que raza eres?
+Aldeano: Nunca habia visto a nadie como tu...
+Ivankar: No soy de este planeta...
+Aldeano: ¿Lo dices en serio?
+Ivankar: No, jajaja.
+
 
 Vendedor: Hola, ¿en que puedo ayudarle?
 Vendedor: Gracias por su visita.

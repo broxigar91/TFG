@@ -2,50 +2,33 @@
   "objectives": [
     {
       "id": 1,
-      "description": "el primer objetivo",
+      "description": "Llega a Pueblo Heufer",
       "active": true,
       "complete": false,
       "unlocks": [2]
     },
     {
       "id": 2,
-      "description": "el segundo",
+      "description": "Averigua tu próximo destino",
       "active": false,
       "complete": false,
       "requisits": [ 1 ],
-      "unlocks": [ 3, 4 ]
+      "unlocks": [ 3 ]
     },
     {
       "id": 3,
-      "description": "el tercero",
+      "description": "Llega a la mina situada al este",
       "active": false,
       "complete": false,
       "requisits": [ 2 ],
-      "unlocks": [ 5 ]
+      "unlocks": [ 4 ]
     },
     {
       "id": 4,
-      "description": "el cuarto",
+      "description": "Completa la mazmorra",
       "active": false,
       "complete": false,
-      "requisits": [ 2 ],
-      "unlocks": [ 5 ]
-    },
-    {
-      "id": 5,
-      "description": "el quinto",
-      "active": false,
-      "complete": false,
-      "requisits": [3,4],
-	  "unlocks": [6]
-    },
-	{
-		"id": 6,
-		"description": "has llegado a la ciudad",
-		"active":false,
-		"complete":false,
-		"requisits": [5]
-	}
+      "requisits": [ 3 ]
+    }
   ]
-
 }

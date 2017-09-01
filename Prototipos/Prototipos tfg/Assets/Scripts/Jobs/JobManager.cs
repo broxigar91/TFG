@@ -45,4 +45,15 @@ public class JobManager : MonoBehaviour {
         Debug.Log(jobs.Count + " aaaaaaaaaa");
         return jobs;
     }
+
+    public List<String> getNames()
+    {
+        List<String> names = new List<string>();
+
+        jobs.ForEach(x=>
+            names.Add(x.jobName)
+        );
+
+        return names;
+    }
 }

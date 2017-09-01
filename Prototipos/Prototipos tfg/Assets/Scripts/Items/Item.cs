@@ -26,12 +26,13 @@ public class Item {
     public int goldValue;
 
     //parámetros de los objetos -> pociones
-    public int hp_restore;
+    public int hp_restore,mana_restore;
     public int status_restore;
     private bool all; //este parámetro hace referencia a si la poción hace efecto sobre toda la party
 
     //parámetros de los objetos -> equipables (armas y armaduras)
     public int hp;
+    public int mana;
     public int str;
     public int def;
     public int intelect;

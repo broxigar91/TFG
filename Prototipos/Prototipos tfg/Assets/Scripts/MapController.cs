@@ -12,16 +12,11 @@ public class MapController : MonoBehaviour {
 
 
     // Use this for initialization
-    IEnumerator Start () {
+    void Start () {
         cam = GetComponent<Camera>();
         target = Player.instance.transform;
         transform.position = Vector3.Lerp(transform.position, target.position, cam_speed) + new Vector3(0, 0, -10);
-        fm = GameObject.Find("Fader").GetComponent<FadeManager>();
-
-        if(fm.img.color.a >= 0.95f)
-        {
-            yield return StartCoroutine(fm.FadeToClear());
-        }
+        
     }
 	
 	// Update is called once per frame

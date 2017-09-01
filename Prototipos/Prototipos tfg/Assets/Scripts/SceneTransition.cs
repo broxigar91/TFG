@@ -7,7 +7,7 @@ public class SceneTransition : MonoBehaviour {
 
     public GameObject destiny;
     public string escena;
-    public int zone;
+    public int zone,encRate;
 
 
     public IEnumerator OnTriggerEnter2D(Collider2D collider)
@@ -25,10 +25,26 @@ public class SceneTransition : MonoBehaviour {
             yield return StartCoroutine(fm.FadeToBlack());
 
             collider.gameObject.transform.position = destiny.transform.position;
-            SceneManager.LoadScene(escena);
             GameManager.instance.zona_actual = zone;
-        }
+            GameManager.instance.encounter_chance = encRate;
 
+
+            SceneManager.LoadScene(escena);
+        }
     }
 
+    public IEnumerator ChangeScene()
+    {
+
+        FadeManager fm = GameObject.Find("Fader").GetComponent<FadeManager>();
+
+
+        yield return StartCoroutine(fm.FadeToBlack());
+
+        GameManager.instance.zona_actual = zone;
+        GameManager.instance.encounter_chance = encRate;
+
+
+        SceneManager.LoadScene(escena);
+    }
 }

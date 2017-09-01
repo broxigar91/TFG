@@ -7,7 +7,7 @@ public class FadeManager : MonoBehaviour {
 
 
     private bool isFading;
-    public float fadeSpeed;
+    private float fadeSpeed;
     public Image img;
 
 
@@ -20,8 +20,7 @@ public class FadeManager : MonoBehaviour {
     void Start()
     {
         isFading = false;
-        img = this.transform.Find("Transition").GetComponent<Image>();
-        fadeSpeed = 0.8f;
+        fadeSpeed = 0.9f;
     }
 
 
@@ -33,23 +32,25 @@ public class FadeManager : MonoBehaviour {
         while(isFading)
         {
             img.color = Color.Lerp(img.color, Color.black, fadeSpeed * Time.deltaTime);
-            if(img.color.a >=0.95f)
+            if(img.color.a >=0.99f)
             {
                 isFading = false;
             }
             yield return null;
         }
+        StartCoroutine(FadeToClear());
     }
 
     public IEnumerator FadeToClear()
     {
         isFading = true;
+        yield return StartCoroutine(Wait());
 
         while (isFading)
         {
             Debug.Log("asaaasddeert");
             img.color = Color.Lerp(img.color, Color.clear, fadeSpeed * Time.deltaTime);
-            if (img.color.a < 0.05f)
+            if (img.color.a <= 0.01f)
             {
                 isFading = false;
             }
@@ -57,8 +58,8 @@ public class FadeManager : MonoBehaviour {
         }
     }
 
-    public void EndScene()
+    public IEnumerator Wait()
     {
-        FadeToClear();
+        yield return new WaitForSeconds(2);
     }
 }
