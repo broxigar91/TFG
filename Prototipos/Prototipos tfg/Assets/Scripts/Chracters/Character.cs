@@ -565,6 +565,7 @@ public class Character:Unit{
             {
                 jobsInfo.Add(job.jobName, currentJobInfo);
             }
+            maxHp -= (int)(maxHp / job.hp);
         }
 
 
@@ -586,6 +587,7 @@ public class Character:Unit{
     {
         if(job !=null)
         {
+            maxHp = maxHp + (int)(maxHp * job.hp);
             m_hp = hp+(int)(hp * job.hp);
             m_str = str+(int)(str * job.str);
             m_def = def+(int)(def * job.def);
@@ -599,17 +601,18 @@ public class Character:Unit{
     {
         if (job != null)
         {
-            hp -= (int)(hp * job.hp);
-            str -= (int)(str * job.str);
-            def -= (int)(def * job.def);
-            intelect -= (int)(intelect * job.intelect);
-            mdef -= (int)(mdef * job.mdef);
-            spe -= (int)(spe * job.spe);
+            hp -= (int)(hp / job.hp);
+            str -= (int)(str / job.str);
+            def -= (int)(def / job.def);
+            intelect -= (int)(intelect / job.intelect);
+            mdef -= (int)(mdef / job.mdef);
+            spe -= (int)(spe / job.spe);
         }
     }*/
 
     public void equipItem(Item i)
     {
+        Debug.Log("Estoy equipando");
         if(equip.ContainsKey(i.type))
         {
             unapplyItemStats(equip[i.type]);
@@ -618,29 +621,32 @@ public class Character:Unit{
         }
         else
         {
+            Debug.Log("mi vida antes del equipo " + m_hp);
             equip.Add(i.type, i);
             applyItemStats(i);
+            Debug.Log("He equipado!!");
+            Debug.Log("mi vida despues del equipo " + m_hp);
         }
     }
 
     void applyItemStats(Item i)
     {
-        hp += i.hp;
-        str += i.str;
-        def += i.def;
-        intelect += i.intelect;
-        mdef += i.mdef;
-        spe += i.spe;
+        m_hp += i.hp;
+        m_str += i.str;
+        m_def += i.def;
+        m_int += i.intelect;
+        m_mdef += i.mdef;
+        m_spe += i.spe;
     }
 
     void unapplyItemStats(Item i)
     {
-        hp -= i.hp;
-        str -= i.str;
-        def -= i.def;
-        intelect -= i.intelect;
-        mdef -= i.mdef;
-        spe -= i.spe;
+        m_hp -= i.hp;
+        m_str -= i.str;
+        m_def -= i.def;
+        m_int -= i.intelect;
+        m_mdef -= i.mdef;
+        m_spe -= i.spe;
     }
 }
 

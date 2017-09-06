@@ -60,6 +60,7 @@ public class Selector : MonoBehaviour {
                     this.transform.position = chars[j].transform.position;
             }
             i = j;
+            choice = j;
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow))
@@ -99,6 +100,7 @@ public class Selector : MonoBehaviour {
                     this.transform.position = chars[j].transform.position;
             }
             i = j;
+            choice = j;
         }
 
         if(Input.GetKeyDown(KeyCode.DownArrow))
@@ -107,6 +109,7 @@ public class Selector : MonoBehaviour {
             {
                 this.transform.position = chars[i].transform.position;
                 enemy = false;
+                choice = i + 3;
             }
         }
 
@@ -116,7 +119,9 @@ public class Selector : MonoBehaviour {
             {
                 this.transform.position = enemies[i].transform.position;
                 enemy = true;
+                choice = i - 3;
             }
+            
         }
     }
 

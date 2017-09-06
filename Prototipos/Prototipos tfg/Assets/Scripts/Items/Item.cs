@@ -46,7 +46,6 @@ public class Item {
         bc.info.it = this;
         bc.CurrentState = BattleController.BattleState.SELECT_TARGET;
     }
-
 }
 
 [System.Serializable]

@@ -190,8 +190,10 @@ public class BattleController : MonoBehaviour {
                             }
                             else
                             {
-                                target.hp = (int)(battleMembers[pchoice].m_str / target.def * info.skill.damage);
+                                dmg= (int)(battleMembers[pchoice].m_str / target.def * info.skill.damage);
+                                target.hp -= dmg; 
                             }
+                            StartCoroutine(DmgUI(info.target, true, dmg));
                         }
                     }
                     else
@@ -212,26 +214,29 @@ public class BattleController : MonoBehaviour {
                         Debug.Log("ataque normal");
                     }
                     actionRealized = true;
-                    currentState = BattleState.WAITING;
                 }
                 else // daño de los enemigos
                 {
-                    target = battleMembers[info.target];
+                    
+                    //target = battleMembers[info.target];
                     //de momento solo daño fisico
                     
-                    dmg = (int)(enemyMembers[echoice].str - battleMembers.Find(x=>x.Unitname == target.Unitname).m_def);
+                    dmg = (int)(enemyMembers[echoice].str - battleMembers[info.target].m_def);
 
                     if (dmg < 0)
                     {
                         dmg = 0;
                     }
 
-                    target.hp -= dmg;
+                    battleMembers[info.target].m_hp -= dmg;
 
                     StartCoroutine(DmgUI(info.target, false, dmg));
                     Debug.Log("EL ENEMIGO ATACO");
                     actionRealized = true;
-                    currentState = BattleState.WAITING;
+
+                    health[info.target].text = battleMembers[info.target].m_hp.ToString() + " / " + battleMembers[info.target].maxHp.ToString();
+
+
                 }
 
                 for(int i=0;i<enemyMembers.Count;i++)
@@ -241,7 +246,8 @@ public class BattleController : MonoBehaviour {
                         enemyMembers[i].transform.parent.gameObject.SetActive(false);
                     }
                 }
-                
+
+                currentState = BattleState.WAITING;
 
 
                 if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
@@ -292,6 +298,14 @@ public class BattleController : MonoBehaviour {
                     {
                         ee1.fillAmount = 0.0f;
                     }
+                    else if(echoice==1)
+                    {
+                        ee2.fillAmount = 0.0f;
+                    }
+                    else
+                    {
+                        ee3.fillAmount = 0.0f;
+                    }
                     actionRealized = false;
                     currentState = BattleState.WAITING;
                 }
@@ -324,38 +338,52 @@ public class BattleController : MonoBehaviour {
                     currentState = BattleState.ENEMY_CHOICE;
                     break;
                 }
+                else if (ee2.fillAmount >= 1.0)
+                {
+                    echoice = 1;
+                    pchoice = -1;
+                    currentState = BattleState.ENEMY_CHOICE;
+                    break;
+                }
+                else if (ee3.fillAmount >= 1.0)
+                {
+                    echoice = 2;
+                    pchoice = -1;
+                    currentState = BattleState.ENEMY_CHOICE;
+                    break;
+                }
 
 
-                if (c1.fillAmount<1.0f && battleMembers[0].hp!=0)
+                if (c1.fillAmount<1.0f && battleMembers[0].m_hp!=0)
                 {
                     c1.fillAmount += (battleMembers[0].m_spe *0.1f) / waitTime * Time.deltaTime;
                 }
 
 
-                if (c2.fillAmount < 1.0f && battleMembers[1].hp != 0)
+                if (c2.fillAmount < 1.0f && battleMembers[1].m_hp != 0)
                 {
                     c2.fillAmount += (battleMembers[1].m_spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 
-                if (c3.fillAmount < 1.0f && battleMembers[2].hp != 0)
+                if (c3.fillAmount < 1.0f && battleMembers[2].m_hp != 0)
                 {
                     c3.fillAmount += (battleMembers[2].m_spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 if (ee1.fillAmount<1.0f && enemyMembers[0].hp!=0)
                 {
-                    ee1.fillAmount += 0.8f / waitTime * Time.deltaTime;
+                    ee1.fillAmount += (enemyMembers[0].spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 if (ee2.fillAmount < 1.0f && enemyMembers[0].hp != 0)
                 {
-                    ee2.fillAmount += 0.86f / waitTime * Time.deltaTime;
+                    ee2.fillAmount += (enemyMembers[1].spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 if (ee3.fillAmount < 1.0f && enemyMembers[0].hp != 0)
                 {
-                    ee2.fillAmount += 0.7f / waitTime * Time.deltaTime;
+                    ee3.fillAmount += (enemyMembers[2].spe * 0.1f) / waitTime * Time.deltaTime;
                 }
 
                 break;
