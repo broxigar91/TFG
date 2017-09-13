@@ -1,0 +1,22 @@
+{
+  "enemies": [
+    {
+		"id":0,
+		"name": "enemy1",
+		"hp": 15,
+		"zone": 1
+    },
+    {
+		"id":1,
+		"name": "enemy2",
+		"hp": 13,
+		"zone": 1
+    },
+    {
+		"id":2,
+		"name": "enemy3",
+		"hp": 10,
+		"zone": 1
+    }
+  ]
+}

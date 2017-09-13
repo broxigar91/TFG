@@ -1,0 +1,296 @@
+{
+  "items": [
+    {
+		"id": 0,
+		"itemName": "Pocion",
+		"itemDesc": "Recupera 50 puntos de vida.",
+		"type":0,
+		"goldValue": 30,
+		"hp_restore":50
+    },
+    {
+		"id": 1,
+		"itemName": "Superpocion",
+		"itemDesc": "Recupera 150 puntos de vida.",
+		"type": 0,
+		"goldValue": 50,
+		"hp_restore": 150
+    },
+	{
+		"id":2,
+		"itemName": "Ultrapocion",
+		"itemDesc": "Recupera 500 puntos de vida.",
+		"type":0,
+		"goldValue": 150,
+		"hp_restore": 500 
+	},
+	{
+		"id": 3,
+		"itemName": "MAX. Pocion",
+		"itemDesc": "Restaura toda la vida.",
+		"type": 0,
+		"goldValue": 200,
+		"hp_restore": 10000
+	},
+	{
+		"id":4,
+		"itemName": "Eter",
+		"itemDesc": "Recupera 50 puntos de mana",
+		"type": 0,
+		"goldValue": 30,
+		"mana_restore": 50
+	},
+	{
+		"id": 5,
+		"itemName": "Eter MAX.",
+		"itemDesc": "Recupera 150 puntos de mana.",
+		"type":0,
+		"goldValue": 60,
+		"mana_restore": 150
+	},
+	{	
+		"id": 6,
+		"itemName": "Elixir",
+		"itemDesc": "Recupera toda la vida y mana.",
+		"type":0,
+		"goldValue": 500,
+		"hp_restore": 10000,
+		"mana_restore":10000
+	},
+	{
+		"id": 7,
+		"itemName": "Espada de cobre",
+		"itemDesc": "Pequeña espada de cobre utilizada para cazar.",
+		"type":2,
+		"goldValue": 20,
+		"str": 5
+	},
+	{
+		"id": 8,
+		"itemName": "Espada de plata",
+		"itemDesc": "Espada utilizada por los soldados rasos del ejército.",
+		"type":2,
+		"goldValue": 50,
+		"str": 8
+	},
+	{
+		"id": 9,
+		"itemName": "Espada de oro",
+		"itemDesc": "Espada utilizada por grandes generales.",
+		"type":2,
+		"goldValue": 100,
+		"str": 10	
+	},
+	{
+		"id": 10,
+		"itemName": "Hacha de piedra",
+		"itemDesc": "Pequeña hacha utilizada por leñadores e indígenas de la zona.",
+		"type":2,
+		"goldValue": 40,
+		"str": 8
+	},
+	{
+		"id": 11,
+		"itemName": "Hacha de cuarzo",
+		"itemDesc": "Hacha hecha de mineral afilado y de gran ligereza.",
+		"type":2,
+		"goldValue": 70,
+		"str": 10
+	},
+	{
+		"id": 12,
+		"itemName": "Hacha de hierro",
+		"itemDesc": "Hacha utilizada por el ejército en pequeñas escaramuzas al ser más ligera que la espada.",
+		"type":2,
+		"goldValue": 110,
+		"str": 13,
+		"hp": 5
+	},
+	{
+		"id": 13,
+		"itemName": "Baston desgastado",
+		"itemDesc": "Bastón de poco valor aunque imbuido en magia puesto que suele ser el arma de los magos principiantes.",
+		"type":2,
+		"goldValue": 25,
+		"intelect": 5
+	},
+	{
+		"id": 14,
+		"itemName": "Baston de roble",
+		"itemDesc": "Bastón utilizado por los magos de rango intermedio, los cuales potencian en menor medida las magias utilizadas.",
+		"type":2,
+		"goldValue": 50,
+		"intelect": 8
+	},
+	{
+		"id": 15,
+		"itemName": "Baston de metal",
+		"itemDesc": "Mayormente utilizado por los veteranos profesores de las escuelas de magia. Potencia en mayor medida las magias utilizadas.",
+		"type":2,
+		"goldValue": 100,
+		"intelect": 10
+	},
+	{
+		"id": 16,
+		"itemName": "Sombrero de aprendiz",
+		"itemDesc": "Utilizado por los magos novicios, esta imbuido en magia lo cual potencia sus magias ademas de potenciar su defensa contra estas.",
+		"type":3,
+		"goldValue": 50,
+		"hp": 10,
+		"mana": 5,
+		"intelect": 5,
+		"mdef": 8
+	},
+	{
+		"id": 17,
+		"itemName": "Casco de cuero",
+		"itemDesc": "Armadura de tipo medio, proporciona una buena defensa contra enemigos débiles.",
+		"type":3,
+		"goldValue": 100,
+		"hp": 15,
+		"str": 5,
+		"def":5
+	},
+	{
+		"id": 18,
+		"itemName": "Yelmo de hierro",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":3,
+		"goldValue": 100,
+		"hp":30,
+		"str": 5,
+		"def": 8
+	},
+	{
+		"id": 19,
+		"itemName": "toga de aprendiz",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":4,
+		"goldValue": 100,
+		"hp":10,
+		"mana":10,
+		"def": 2,
+		"intelect": 5,
+		"mdef":3
+	},
+	{
+		"id": 20,
+		"itemName": "Pechera de cuero",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":4,
+		"goldValue": 100,
+		"hp":15,
+		"str": 5,
+		"def": 5,
+		"spe":2
+	},
+	{
+		"id": 21,
+		"itemName": "Peto de hierro",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":4,
+		"goldValue": 100,
+		"hp":35,
+		"str": 7,
+		"def": 10
+	},
+	{
+		"id": 22,
+		"itemName": "Guantes de aprendiz",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":7,
+		"goldValue": 100,
+		"hp":5,
+		"mana":5,
+		"def": 2,
+		"intelect":5,
+		"mdef":4
+	},
+	{
+		"id": 23,
+		"itemName": "Guantes de cuero",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":7,
+		"goldValue": 100,
+		"hp":15,
+		"str": 5,
+		"def": 3,
+		"spe": 2
+	},
+	{
+		"id": 24,
+		"itemName": "Guanteletes de hierro",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":7,
+		"goldValue": 100,
+		"hp":30,
+		"str": 7,
+		"def": 10
+	},
+	{
+		"id": 25,
+		"itemName": "Pantalones de aprendiz",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":5,
+		"goldValue": 100,
+		"hp":10,
+		"mana":5,
+		"def": 3,
+		"intelect":6,
+		"mdef":4
+	},
+	{
+		"id": 26,
+		"itemName": "Pantalones de cuero",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":5,
+		"goldValue": 100,
+		"hp":20,
+		"str": 6,
+		"def": 5,
+		"spe":3
+	},
+	{
+		"id": 27,
+		"itemName": "Quijotes de hierro",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":5,
+		"goldValue": 100,
+		"hp":30,
+		"str": 7,
+		"def": 10
+	},
+	{
+		"id": 28,
+		"itemName": "Sandalias de aprendiz",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":6,
+		"goldValue": 100,
+		"hp":6,
+		"def": 3,
+		"intelect":5,
+		"mdef":4,
+		"spe":3
+	},
+	{
+		"id": 29,
+		"itemName": "Botas de cuero",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":6,
+		"goldValue": 100,
+		"hp":70,
+		"str": 7,
+		"def": 10
+	},
+	{
+		"id": 30,
+		"itemName": "Grebas de hierro",
+		"itemDesc": "Armadura pesada utilizada por los caballeros del reino, ofrece una gran resistencia a los golpes físicos.",
+		"type":6,
+		"goldValue": 100,
+		"hp":70,
+		"str": 7,
+		"def": 10
+	}
+  ]
+}

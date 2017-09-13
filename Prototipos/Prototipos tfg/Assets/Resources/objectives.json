@@ -1,0 +1,34 @@
+{
+  "objectives": [
+    {
+      "id": 1,
+      "description": "Llega a Pueblo Heufer",
+      "active": true,
+      "complete": false,
+      "unlocks": [2]
+    },
+    {
+      "id": 2,
+      "description": "Averigua tu siguiente destino",
+      "active": false,
+      "complete": false,
+      "requisits": [ 1 ],
+      "unlocks": [ 3 ]
+    },
+    {
+      "id": 3,
+      "description": "Llega a la mina situada al este",
+      "active": false,
+      "complete": false,
+      "requisits": [ 2 ],
+      "unlocks": [ 4 ]
+    },
+    {
+      "id": 4,
+      "description": "Completa la mazmorra",
+      "active": false,
+      "complete": false,
+      "requisits": [ 3 ]
+    }
+  ]
+}
