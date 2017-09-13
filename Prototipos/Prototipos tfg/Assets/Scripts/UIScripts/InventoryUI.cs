@@ -13,27 +13,33 @@ public class InventoryUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        inventory = Inventory.inventory;
-        db = GameManager.instance.GetComponent<itemDBController>();
-        paintItems();
+ 
         chContainer.SetActive(false);
 	}
 	
 
     void paintItems()
     {
-        foreach(InvItem it in inventory.itemList)
-        {
-            GameObject itemInstance = Instantiate(item);
-            Item itemDetails = db.getById(it.id);
-            itemInstance.transform.GetComponentInChildren<Text>().text = itemDetails.itemName;
+        inventory = Inventory.inventory;
+        db = GameManager.instance.GetComponent<itemDBController>();
+        Debug.Log(inventory == null);
 
-            itemInstance.transform.GetComponentInChildren<Button>().onClick.AddListener(delegate { this.Select(itemDetails); } );
-            
-            itemInstance.transform.SetParent(this.transform);
-            itemInstance.transform.localScale = new Vector3(1, 1, 1);
-            
+        if(inventory.itemList.Count!=0)
+        {
+            foreach (InvItem it in inventory.itemList)
+            {
+                GameObject itemInstance = Instantiate(item);
+                Item itemDetails = db.getById(it.id);
+                itemInstance.transform.GetComponentInChildren<Text>().text = itemDetails.itemName;
+
+                itemInstance.transform.GetComponentInChildren<Button>().onClick.AddListener(delegate { this.Select(itemDetails); });
+
+                itemInstance.transform.SetParent(this.transform);
+                itemInstance.transform.localScale = new Vector3(1, 1, 1);
+
+            }
         }
+        
     }
 
     public void Reload()
@@ -62,8 +68,10 @@ public class InventoryUI : MonoBehaviour {
 
     private void OnEnable()
     {
-        if(this.transform.childCount!=0)
+        if (this.transform.childCount != 0)
             Reload();
+        else
+            paintItems();
     }
 
     public void ItemInteraction(string x)

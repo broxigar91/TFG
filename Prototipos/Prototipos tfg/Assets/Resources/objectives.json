@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "description": "Averigua tu próximo destino",
+      "description": "Averigua tu siguiente destino",
       "active": false,
       "complete": false,
       "requisits": [ 1 ],

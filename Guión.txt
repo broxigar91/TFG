@@ -1,0 +1,42 @@
+﻿Guión presentación
+
+1- Explicación del género y su evolución: (Primero sale el gif con portadas de juegos mas antiguos y posteriormente aparece el gif con lanzamientos mas recientes)
+	Género con una gran base de público, con una gran evolución a lo largo de los años trayendo consigo una gran
+	variedad de estilos y subgéneros.
+	Género con gran presencia en el presente con grandes lanzamientos.
+
+2- Comentar los objetivos del proyecto hablando tanto de los objetivos del juego como del proceso de ingenieria.
+
+3- Comentar la distribución de la presentación con los 3 grandes bloques (mapas, menús y batalla).
+
+4- Mapas, donde se explican los 3 tipos de mapas con las mecanicas y posibilidades.
+
+5- Enganchamos con las conversaciones ya que la interaccion con personajes es una de las principales mecanicas del mapas, explicando el funcionamiento del script
+
+6- Hablar de los menús (muestro mas información de los menús en el video de gameplay)
+	Comentar que son menús informativos donde podemos ver la informacion principal: grupo con estadísticas, lista de objetos en el
+	inventario, lista de objetivos activos y lista de trabajos.
+
+7- Enganchamos con el ultimo elemento principal que son las batallas. (Mostrar imagen primero y posteriormente que se vea la ejecución en el video de gameplay)
+	Hablar del funcionamiento de las batallas-> flujo de ejecución (primero cargan barras, seguido de eleccion de accion/objetivo y ejecucion
+	de la accion seleccionada). 
+	Hablar de los elementos que componen la batalla (lo cual se puede enganchar con la galeria de componentes ( ya que personajes, enemigos, 
+	etc estan presentes en la galeria de componenes)).
+
+8- Galería de componentes.
+	como se ve en la diapositiva los componentes se centran en la reutilización (ej: la imagen que muestra los prefabs de interfaz)
+	y en la persistencia de datos (se muestra el gameManager y los demás singleton (asociados a el de una forma u otra, ya que en algunos casos
+	se enlazan los prefabs para instanciar y en otros directamente se enlazan componentes script a el).
+	
+9- Enganchamos con otros componentes necesarios, empezando por los personajes hablando de su enlace con los trabajos y su crecimiento de estadísticas
+
+10- Componente enemigos, decir como se almacenan en el prefab de base de datos de enemigos y como funciona éste.
+
+11- Componentes trabajos y habilidades, explicar su funcionamiento y en el caso de habilidades explicar que es un script generico para poder crear todo tipo de habilidades
+
+12- Componente Objetivos, hablar de como estan construidos y que son adaptables a varias situaciones (conversaciones, obtener objetos, etc) con pequeños cambios en el código y 
+	como se almacenan los objetivos.
+
+13- Componente objetos, hablar de como se sigue cumpliendo el principio de reutilización. Explicar el script genérico (enganchando con los tipos de objetos) y como se almacenan los objetos en el juego
+
+14- Conclusiones. Hablar de como ha sido el desarrollo a nivel general y que he conseguido en éste.

@@ -117,7 +117,9 @@ public class GameManager : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.O))
         {
-            Party.instance.characters[0].setJob("Black Mage");
+            Party.instance.characters[0].setJob("Monje");
+            Party.instance.characters[1].setJob("Caballero");
+            Party.instance.characters[2].setJob("Mago Negro");
             Debug.Log(Party.instance.characters[0].job.jobName);
         }
 
@@ -162,16 +164,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void ToggleInventory()
-    {
-        this.GetComponent<PauseMenu>().ToggleInventory();
-    }
 
     public void ResumeGame()
     {
         if(menu.activeSelf)
         {
             menu.SetActive(false);
+            this.GetComponent<PauseMenu>().CloseAll();
             Time.timeScale = 1.0f;
             state = GameState.MAP;
         }

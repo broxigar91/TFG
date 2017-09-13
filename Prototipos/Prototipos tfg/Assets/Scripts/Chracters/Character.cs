@@ -35,6 +35,8 @@ public class Character:Unit{
         m_int = intelect;
         m_mdef = mdef;
         m_spe = spe;
+        lvlupExp = 100;
+        currentJobInfo.currentJoblvl = 1;
     }
 
     public void expGain(int expGained,int jobxP)
@@ -42,13 +44,15 @@ public class Character:Unit{
         currentExp += expGained;
         currentJobInfo.jobXP += jobxP;
 
-        while(currentExp >= lvlupExp)
+        int asd = job.joblvl[currentJobInfo.currentJoblvl];
+
+        while (currentExp >= lvlupExp)
         {
             currentExp = currentExp - lvlupExp; //si es = sera 0, si es > será la diferencia
             lvlUp();
         }
 
-        while(currentJobInfo.jobXP>=job.joblvl[currentJobInfo.currentJoblvl])
+        while(currentJobInfo.jobXP>=asd)
         {
             currentJobInfo.jobXP -= job.joblvl[currentJobInfo.currentJoblvl];
             currentJobInfo.currentJoblvl++;

@@ -241,20 +241,27 @@ public class BattleController : MonoBehaviour {
 
                 for(int i=0;i<enemyMembers.Count;i++)
                 {
-                    if(enemyMembers[i].hp==0)
+                    if(enemyMembers[i].hp<=0)
                     {
-                        enemyMembers[i].transform.parent.gameObject.SetActive(false);
+                        enemySprites[i].transform.parent.gameObject.SetActive(false);
                     }
                 }
 
+
+                info.enemy = false;
+                info.target = -1;
+                info.skill = null;
+                info.it = null;
+                
+
                 currentState = BattleState.WAITING;
+                
 
-
-                if (enemyMembers.FindAll(x => x.hp == 0).Count == 3)
+                if (enemyMembers.FindAll(x => x.hp <= 0).Count == 3)
                 {
                     currentState = BattleState.WIN;
                 }
-                if(battleMembers.FindAll(x=>x.m_hp ==0).Count==3)
+                if(battleMembers.FindAll(x=>x.m_hp <=0).Count==3)
                 {
                     currentState = BattleState.LOSE;
                 }
@@ -289,7 +296,7 @@ public class BattleController : MonoBehaviour {
                     {
                         c2.fillAmount = 0.0f;
                     }
-                    else
+                    else if(pchoice==2)
                     {
                         c3.fillAmount = 0.0f;
                     }
@@ -302,7 +309,7 @@ public class BattleController : MonoBehaviour {
                     {
                         ee2.fillAmount = 0.0f;
                     }
-                    else
+                    else if(echoice==2)
                     {
                         ee3.fillAmount = 0.0f;
                     }
@@ -487,7 +494,7 @@ public class BattleController : MonoBehaviour {
         }
 
         current_skills = SkillManager.instance.getByJob(battleMembers[pchoice].job.jobName);
-        Transform go = skills.transform.Find("Content");
+        Transform go = skills.transform.GetChild(0).Find("Content");
 
         Debug.Log(current_skills.Count+"skills");
 

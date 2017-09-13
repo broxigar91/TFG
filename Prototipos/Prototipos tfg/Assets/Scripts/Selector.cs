@@ -145,6 +145,7 @@ public class Selector : MonoBehaviour {
     private void OnEnable()
     {
         i = enemies.FindIndex(x => x.activeInHierarchy == true);
+        choice = i;
 
         this.transform.position = enemies[i].transform.position;
     }

@@ -14,6 +14,7 @@ public class JobUI : MonoBehaviour {
 	void Start () {
         jM = JobManager.instance;
         paintJobs();
+        PaintJobInfo(jM.jobs[0].jobName);
 	}
 	
 	// Update is called once per frame

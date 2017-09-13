@@ -89,4 +89,12 @@ public class PauseMenu : MonoBehaviour {
             lastMenu = "";
         }
     }
+
+    public void CloseAll()
+    {
+        inventoryMenu.SetActive(false);
+        jobsMenu.SetActive(false);
+        partyMenu.SetActive(false);
+        objectivesMenu.SetActive(false);
+    }
 }
